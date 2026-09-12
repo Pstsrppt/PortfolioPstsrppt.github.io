@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ผลงาน | Pongsathorn Siriprompitak</title>
+<meta name="description" content="ผลงานของ Pongsathorn Siriprompitak: CakeShop ระบบอีคอมเมิร์ซด้วย ASP.NET Core MVC และ POLIS ระบบ AI แบบ Event-driven">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="topnav" aria-label="เมนูหลัก"><div class="wrap">
+  <a class="logo" href="index.html"><span data-bind="first">Pongsathorn</span><span class="ln"> <span data-bind="last">Siriprompitak</span></span></a>
+  <div class="links">
+    <a class="hide-m" href="index.html">โลก 3D</a>
+    <a href="projects.html">ผลงาน</a>
+    <a href="about.html">เกี่ยวกับผม</a>
+    <a class="btn y sm" href="resume.html">เรซูเม่</a>
+  </div>
+</div></nav>
+<header class="hero short" data-glow>
+  <span class="fly" style="left:12%;top:60%"></span><span class="fly" style="left:40%;top:75%;animation-delay:1.4s"></span><span class="fly" style="left:80%;top:62%;animation-delay:2.6s"></span>
+  <div class="wrap">
+    <p class="kick" style="color:var(--tag)">ผลงาน</p>
+    <h1>งานที่ผม<span>ลงมือทำเอง</span></h1>
+    <p class="lead">ทุกชิ้นมีโค้ดบน GitHub ให้เปิดดูได้ บอกไว้ชัดว่าแก้ปัญหาอะไร ใช้อะไร และผมรับผิดชอบส่วนไหน</p>
+    <div class="ctas"><a class="btn y" href="index.html?go=projects">ดูในโลก 3D →</a><a class="btn g" data-link="github">GitHub ทั้งหมด</a></div>
+  </div>
+  <svg class="hills" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+    <polygon fill="#3F3596" points="0,95 120,60 260,88 400,42 560,84 700,52 860,88 1000,48 1160,84 1300,56 1440,80 1440,150 0,150"/>
+    <polygon fill="#2E2680" points="0,122 180,92 330,114 520,84 690,118 880,88 1060,116 1240,92 1440,112 1440,150 0,150"/>
+    <polygon fill="#F7F5FF" points="0,140 360,132 720,138 1080,130 1440,138 1440,150 0,150"/>
+  </svg>
+</header>
+
+<div class="wrap lift">
+  <article class="case rv" id="cakeshop" style="--c:#FF7AB6">
+    <div class="shot">
+      <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>pstsrppt.github.io/work/cakeshop</span></div>
+      <img src="images/cakeshop.png" alt="หน้าจอระบบ CakeShop">
+    </div>
+    <div class="body">
+      <div class="tagrow"><span class="tag star">ผลงานเด่น</span><span class="tag">งานเดี่ยวในรายวิชา</span></div>
+      <h2>CakeShop</h2>
+      <dl class="dl">
+        <dt>ปัญหา</dt><dd>โจทย์รายวิชา: จำลองระบบขายของร้านเค้กให้ครบทั้งกระบวนการ</dd>
+        <dt>ทางแก้</dt><dd>ระบบอีคอมเมิร์ซที่มีสมาชิก คำสั่งซื้อ การชำระเงิน สต็อก และโปรโมชัน</dd>
+        <dt>บทบาทผม</dt><dd>ทำคนเดียวทั้งหมด ตั้งแต่ออกแบบฐานข้อมูลจนถึงหน้าเว็บ</dd>
+        <dt>เทคโนโลยี</dt><dd><div class="chips"><span>ASP.NET Core MVC</span><span>C#</span><span>EF Core</span><span>MySQL</span></div></dd>
+        <dt>หลักฐาน</dt><dd>โค้ดบน GitHub และเอกสาร DFD ระดับ 0 และ 1</dd>
+        <dt>สิ่งที่ได้เรียนรู้</dt><dd>ตอนแรกออกแบบตาราง stock/โปรโมชันแบบไม่คิดเผื่อ ทำให้คำนวณราคาผิดเวลามีโปรโมชันซ้อนกัน เลยต้องกลับไปวางโครงสร้างฐานข้อมูลใหม่ และเขียน transaction ตอนตัดสต็อกให้รัดกุมขึ้นเวลามีคำสั่งซื้อพร้อมกัน</dd>
+      </dl>
+      <div class="ctas"><a class="btn b" href="https://github.com/Pstsrppt/cakeshop-ecommerce" target="_blank" rel="noopener">ดูโค้ดบน GitHub</a></div>
+    </div>
+  </article>
+  <article class="case rv" id="polis" style="--c:#FFC54D">
+    <div class="shot">
+      <div class="chrome" aria-hidden="true"><i></i><i></i><i></i><span>pstsrppt.github.io/work/polis</span></div>
+      <img src="images/polis.png" alt="แดชบอร์ด Trade Log ของ POLIS">
+    </div>
+    <div class="body">
+      <div class="tagrow"><span class="tag">โปรเจกต์ส่วนตัว</span><span class="tag">งานเดี่ยว</span></div>
+      <h2>POLIS</h2>
+      <dl class="dl">
+        <dt>ปัญหา</dt><dd>อยากให้ AI หลายตัวทำงานร่วมกันอย่างเป็นระบบ ไม่ใช่ต่างคนต่างทำงานจนควบคุมและตรวจสอบยาก</dd>
+        <dt>ทางแก้</dt><dd>ระบบปฏิบัติการองค์กรด้วย AI ที่สื่อสารกันผ่าน Event Bus มี Agent Registry, Policy Engine และแดชบอร์ดควบคุม</dd>
+        <dt>บทบาทผม</dt><dd>ออกแบบสถาปัตยกรรมและเขียนแกนหลักด้วย Python</dd>
+        <dt>เทคโนโลยี</dt><dd><div class="chips"><span>Python</span><span>Event-driven</span><span>HTML/JS</span></div></dd>
+        <dt>หลักฐาน</dt><dd>โค้ดบน GitHub</dd>
+        <dt>สิ่งที่ได้เรียนรู้</dt><dd>ตอนเริ่มให้ Agent เรียกกันตรงๆ ระบบพันกันจนแก้ยาก พอเปลี่ยนมาสื่อสารผ่าน Event Bus แล้วเพิ่ม Policy Engine คอยคุมกฎ ทำให้เพิ่ม Agent ใหม่หรือแก้ไขตัวเดิมได้โดยไม่กระทบส่วนอื่น</dd>
+      </dl>
+      <div class="ctas"><a class="btn b" href="https://github.com/Pstsrppt/polis-trading-system" target="_blank" rel="noopener">ดูโค้ดบน GitHub</a></div>
+    </div>
+  </article>
+
+  <div class="soon rv">
+    <div><b>โปรเจกต์ด้าน AI กำลังตามมา</b><br>ตอนนี้ผมกำลังศึกษา RAG และ LLM APIs เพื่อสร้างผลงานชิ้นถัดไป</div>
+    <a class="btn gi" href="about.html">อ่านเรื่องของผม</a>
+  </div>
+</div>
+<footer><div class="wrap">
+  <div><b data-bind="name">Pongsathorn Siriprompitak</b><br>สร้างด้วย Vibe Coding และ HTML, CSS, JavaScript</div>
+  <div class="fl"><a href="index.html">← กลับไปโลก 3D</a><a data-link="github">GitHub</a><a data-link="linkedin">LinkedIn</a><a data-link="email">อีเมล</a></div>
+</div></footer>
+<script src="data.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
