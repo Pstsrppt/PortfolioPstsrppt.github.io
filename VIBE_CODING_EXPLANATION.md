@@ -2,8 +2,8 @@
 
 **ชื่อ:** พงศธร ศิริพรหมพิทักษ์ (Pongsathorn Siriprompitak)
 **สาขา:** วิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ มหาวิทยาลัยศรีปทุม
-**Public URL:** https://pstsrppt.github.io/PortfolioPstsrppt.github.io/
-**Source Code:** https://github.com/Pstsrppt/PortfolioPstsrppt.github.io
+**Public URL:** https://pstsrppt.github.io/
+**Source Code:** https://github.com/Pstsrppt/pstsrppt.github.io
 
 ---
 
