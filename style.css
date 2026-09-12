@@ -164,6 +164,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 footer b{color:var(--text);font-family:Fredoka,Kanit,sans-serif;font-weight:600;font-size:18px}
 footer .fl{display:flex;gap:18px;flex-wrap:wrap}
 footer a{text-decoration:none}footer a:hover{color:var(--tag)}
+footer .fl a{display:inline-flex;align-items:center;gap:6px}
+footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
 #toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--tag);color:var(--ink);font-weight:500;padding:9px 20px;border-radius:40px;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;z-index:20}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
