@@ -28,9 +28,6 @@ h1,h2,h3{font-family:Fredoka,Kanit,sans-serif;font-weight:600;line-height:1.2}
 .btn.g:hover{border-color:var(--tag);color:var(--tag)}.btn.gi:hover{border-color:var(--ink)}
 .btn.sm{padding:7px 14px;font-size:15px}
 .ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(234,231,255,.14);border:1.5px solid rgba(234,231,255,.5);color:#fff;flex:none;transition:border-color .15s,color .15s,background .15s}
-.iconbtn svg{width:20px;height:20px;fill:currentColor}
-.iconbtn:hover{background:var(--tag);border-color:var(--tag);color:var(--ink)}
 
 /* ---------- night hero ---------- */
 .hero{position:relative;overflow:hidden;color:var(--text);background:linear-gradient(#0E0A33 0%,#211866 60%,#3A2A8F 100%);padding:70px 0 150px}
@@ -204,8 +201,11 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
 .pcgrid li{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1.5px dashed rgba(42,31,107,.12)}
 .pi{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--c);box-shadow:0 4px 0 rgba(0,0,0,.18)}
 .pi svg{width:22px;height:22px;fill:none;stroke:var(--s);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pi.solid svg{width:20px;height:20px;fill:var(--s);stroke:none}
 .pcgrid small{display:block;font-size:13px;font-weight:500;color:var(--muted)}
 .pcgrid b{display:block;font-weight:600;font-size:17px;line-height:1.5;color:var(--ink)}
+.pcgrid b a{color:inherit;text-decoration:underline;text-decoration-color:rgba(42,31,107,.3);text-underline-offset:3px}
+.pcgrid b a:hover{text-decoration-color:currentColor}
 .pcopy{margin-top:6px;background:#EEEBFF;border:0;border-radius:8px;padding:3px 12px;font-size:13px;font-weight:600;color:var(--ink)}
 .pcopy:hover{background:var(--tag)}
 @media (max-width:760px){.pcgrid{grid-template-columns:1fr;padding:4px 18px 10px}}
