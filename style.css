@@ -132,6 +132,7 @@ section{padding:72px 0}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .sheet{max-width:860px;margin:-80px auto 0;position:relative;z-index:2;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(42,31,107,.16);display:grid;grid-template-columns:260px 1fr;overflow:hidden}
 .side{background:var(--night);color:var(--text);padding:30px 24px}
+.rphoto{width:92px;height:92px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 18px;border:3px solid rgba(234,231,255,.25)}
 .side h3{font-size:15px;letter-spacing:.04em;color:var(--tag);margin:22px 0 8px;font-weight:600}
 .side h3:first-of-type{margin-top:0}
 .side p,.side li{font-size:15px;line-height:1.6}
@@ -174,6 +175,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--tag)}
   .topnav,.hero,footer,.toolbar,#toast,.noprint{display:none!important}
   .sheet{margin:0;box-shadow:none;border-radius:0;max-width:none;grid-template-columns:220px 1fr}
   .side{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:20px 18px}
+  .rphoto{width:64px;height:64px;margin:0 auto 10px}
   .side h3{margin:14px 0 6px}
   .side h3:first-of-type{margin-top:0}
   .side li{margin-bottom:4px}
