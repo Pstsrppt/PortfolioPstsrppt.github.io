@@ -27,7 +27,10 @@ h1,h2,h3{font-family:Fredoka,Kanit,sans-serif;font-weight:600;line-height:1.2}
 .btn.y:hover{transform:translateY(2px);box-shadow:0 3px 0 #B88F1F}.btn.b:hover{transform:translateY(2px);box-shadow:0 3px 0 #2A26B8}
 .btn.g:hover{border-color:var(--tag);color:var(--tag)}.btn.gi:hover{border-color:var(--ink)}
 .btn.sm{padding:7px 14px;font-size:15px}
-.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(234,231,255,.08);border:1.5px solid rgba(234,231,255,.3);color:var(--text);flex:none;transition:border-color .15s,color .15s}
+.iconbtn svg{width:20px;height:20px;fill:currentColor}
+.iconbtn:hover{border-color:var(--tag);color:var(--tag)}
 
 /* ---------- night hero ---------- */
 .hero{position:relative;overflow:hidden;color:var(--text);background:linear-gradient(#0E0A33 0%,#211866 60%,#3A2A8F 100%);padding:70px 0 150px}
