@@ -138,7 +138,8 @@ section{padding:72px 0}
 .side p,.side li{font-size:15px;line-height:1.6}
 .side ul{list-style:none;padding:0}
 .side li{margin-bottom:6px}
-.side a{color:var(--text);word-break:break-all}
+.side a{color:var(--text);overflow-wrap:anywhere}
+.side a.mail{font-size:13.5px;letter-spacing:-.01em}
 .side .chips span{background:rgba(234,231,255,.12);color:var(--text);font-size:14px}
 .side .grp{margin-bottom:10px}
 .side .grp small{display:block;color:var(--soft);font-size:13px;margin-bottom:4px}
