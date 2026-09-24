@@ -11,7 +11,7 @@ var SITE = {
   linkedin: 'https://www.linkedin.com/in/pongsathorn-siriprompithak-560466350',
   cv: 'resume.pdf',      // นำไฟล์ PDF เรซูเม่มาวางไว้ที่โฟลเดอร์เดียวกับ index.html แล้วตั้งชื่อว่า resume.pdf
   careerRole: 'นักพัฒนาซอฟต์แวร์ระดับจูเนียร์',   // สายงานที่มองหา (ตัวใหญ่)
-  careerFocus: '(ASP.NET Core MVC, C#, MySQL)',   // คำขยาย (ตัวเล็กบรรทัดล่าง)
+  careerFocus: 'สาย ASP.NET Core MVC / C# / MySQL',   // คำขยาย (ตัวเล็กบรรทัดล่าง)
   avail: 'พร้อมเริ่มฝึกสหกิจได้ทันที หลักสูตร 4 เดือน',
   major: 'วิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ (Software Full Stack Development)',
   faculty: 'คณะเทคโนโลยีสารสนเทศ',
