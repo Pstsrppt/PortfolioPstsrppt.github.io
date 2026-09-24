@@ -22,7 +22,13 @@
   all('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
     if(navigator.clipboard) navigator.clipboard.writeText(S.email).then(()=>toast('คัดลอกอีเมลแล้ว: '+S.email),()=>location.href='mailto:'+S.email);
     else location.href='mailto:'+S.email; }));
-  all('[data-print]').forEach(b=>b.addEventListener('click',()=>window.print()));
+  all('[data-print]').forEach(b=>b.addEventListener('click',()=>{
+    const prevTitle=document.title;
+    document.title=(S.nameEn||'Resume').replace(/\s+/g,'_')+'_Resume';
+    const restore=()=>{ document.title=prevTitle; window.removeEventListener('afterprint',restore); };
+    window.addEventListener('afterprint',restore);
+    window.print();
+  }));
 
   all('.buddy').forEach(b=>b.innerHTML='<div class="arm"></div><div class="body"></div><div class="head"></div><div class="hair"></div><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div>');
 
