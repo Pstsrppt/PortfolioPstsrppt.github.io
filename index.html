@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pongsathorn Siriprompitak | พอร์ตโฟลิโอโลกกลางคืน</title>
-<meta name="description" content="พอร์ตโฟลิโอแบบโลก 3D ของ Pongsathorn Siriprompitak นักศึกษาวิทยาการคอมพิวเตอร์และวิทยาการข้อมูล มหาวิทยาลัยศรีปทุม ระบบเว็บ ข้อมูล และ AI">
+<meta name="description" content="พอร์ตโฟลิโอแบบโลก 3D ของ Pongsathorn Siriprompitak นักศึกษาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ มหาวิทยาลัยศรีปทุม ระบบเว็บ ข้อมูล และ AI">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pongsathorn Siriprompitak | พอร์ตโฟลิโอโลกกลางคืน">
-<meta property="og:description" content="พอร์ตโฟลิโอแบบโลก 3D ของ Pongsathorn Siriprompitak นักศึกษาวิทยาการคอมพิวเตอร์และวิทยาการข้อมูล มหาวิทยาลัยศรีปทุม ระบบเว็บ ข้อมูล และ AI">
+<meta property="og:description" content="พอร์ตโฟลิโอแบบโลก 3D ของ Pongsathorn Siriprompitak นักศึกษาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ มหาวิทยาลัยศรีปทุม ระบบเว็บ ข้อมูล และ AI">
 <meta property="og:url" content="https://pstsrppt.github.io/PortfolioPstsrppt.github.io/">
 <meta property="og:image" content="https://pstsrppt.github.io/PortfolioPstsrppt.github.io/images/me.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -388,7 +388,7 @@ function stationWelcome(g,d){
   place(g,new THREE.Mesh(new THREE.BoxGeometry(8.4,.42,.46),woodDark),0,6.45,0,{pop:d+.1});
   place(g,board(6.6,1.6,[SITE.first]),0,5.1,0,{pop:d+.2});
   place(g,board(5.6,.95,[SITE.last]),0,3.85,0,{pop:d+.28});
-  place(g,board(5,.8,['CS + Data Science / ม.ศรีปทุม']),0,2.9,0,{pop:d+.34});
+  place(g,board(5,.8,['CS + Software Dev / ม.ศรีปทุม']),0,2.9,0,{pop:d+.34});
   place(g,board(2.9,.62,['พร้อมฝึกสหกิจ'],{ bg:'#F5C542', color:'#2A1F6B', font:'Kanit', weight:700 }),2.3,2.15,.2,{ rz:-.08, pop:d+.45 });
   place(g,board(2.6,3,['เดิน  ← →','ดูใกล้  Enter','ถอย  Esc'],{ bg:'chalk' }),-6.4,1.7,2.2,{ rx:-.18, ry:.45, pop:d+.5 });
   place(g,board(.9,.9,[],{ arrow:1, frame:blueM }),5.4,1.3,1.8,{ ry:-.3, pop:d+.55, action:'next' });
@@ -434,7 +434,7 @@ function stationProjects(g,d){
   lantern(g,-8.2,-1.2,3,d+.1); lantern(g,8,-1.6,3,d+.15);
 }
 function stationStory(g,d){
-  const items=[['2566 – 2570','ม.ศรีปทุม','CS + Data Science'],['สหกิจ 4 เดือน','พร้อมเริ่มทันที']];
+  const items=[['2566 – 2570','ม.ศรีปทุม','CS + Software Dev'],['สหกิจ 4 เดือน','พร้อมเริ่มทันที']];
   items.forEach((it,i)=>{ const x=(i-(items.length-1)/2)*5.4;
     lantern(g,x,-.4,5.2,d+i*.12);
     place(g,new THREE.Mesh(new THREE.BoxGeometry(1.6,.14,.14),woodDark),x+.7,4.9,-.4,{pop:d+i*.12});
@@ -757,7 +757,7 @@ $('helpClose').onclick=closeHelp;
 $('hQuick').onclick=()=>{ closeHelp(); openQuick(); };
 
 const TOUR=[
-  { k:'ผมคือใคร?', t:()=>SITE.name+' นักศึกษาสาขาวิทยาการคอมพิวเตอร์และวิทยาการข้อมูล มหาวิทยาลัยศรีปทุม กรุงเทพฯ', go:()=>go(0) },
+  { k:'ผมคือใคร?', t:()=>SITE.name+' นักศึกษาสาขาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ มหาวิทยาลัยศรีปทุม กรุงเทพฯ', go:()=>go(0) },
   { k:'สนใจงานสายไหน?', t:()=>CAREER+' / '+AVAIL, go:()=>go(1) },
   { k:'ทักษะเด่น', t:'C# กับ ASP.NET Core MVC และ MySQL สำหรับระบบเว็บ รวมถึง Python และการคลีนข้อมูล', go:()=>go(1) },
   { k:'ผลงานเด่น', t:'CakeShop ระบบอีคอมเมิร์ซที่ผมทำคนเดียวทั้งหมด ตั้งแต่ออกแบบฐานข้อมูลจนถึงหน้าเว็บ พร้อมเอกสาร DFD', go:()=>goProject(0) },
