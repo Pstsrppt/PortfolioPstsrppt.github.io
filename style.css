@@ -131,11 +131,16 @@ section{padding:72px 0}
 /* ---------- resume page ---------- */
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .sheet{max-width:860px;margin:-80px auto 0;position:relative;z-index:2;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(42,31,107,.16);display:grid;grid-template-columns:250px 1fr;overflow:hidden}
-.rbanner{grid-column:1/-1;padding:32px 38px 24px;border-bottom:3px solid var(--tag);display:flex;align-items:center;gap:22px}
+.rbanner{grid-column:1/-1;position:relative;padding:32px 38px 34px;display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,#FFF6E2,#FFFDF7)}
 .rphoto{width:120px;height:120px;border-radius:28px;object-fit:cover;display:block;flex:none;border:3px solid var(--tag);box-shadow:0 10px 24px rgba(42,31,107,.22)}
+.rbtext{flex:1}
 .rbanner h1{font-family:Fredoka,Kanit,sans-serif;font-weight:600;font-size:clamp(26px,4vw,32px);color:var(--ink);margin:0}
 .rtitle{color:var(--blue);font-weight:600;font-size:16px;margin:4px 0 6px}
 .rsum{color:var(--muted);font-size:14px}
+.rqr{flex:none;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+.rqr img{width:60px;height:60px;border-radius:8px;background:#fff;padding:4px;box-shadow:0 2px 8px rgba(42,31,107,.15)}
+.rqr span{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.rwave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:22px;display:block}
 .rside{background:var(--paper);padding:28px 24px;border-right:1px solid var(--line)}
 .rside h3{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px;font-weight:600}
 .rside h3:first-of-type{margin-top:0}
@@ -164,6 +169,10 @@ section{padding:72px 0}
 .item ul{padding-left:20px;margin-top:4px}
 .item li{margin-bottom:3px;line-height:1.65}
 .item .lnk{font-size:14px;color:#6A62C0}
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline .item{position:relative}
+.timeline .item::before{content:"";position:absolute;left:-20px;top:5px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--tag)}
 
 /* ---------- footer, toast, reveal ---------- */
 footer{background:var(--deep);color:var(--soft);padding:40px 0;margin-top:72px}
@@ -186,11 +195,14 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
   body{background:#fff;font-size:12px}
   .topnav,.hero,footer,.toolbar,#toast,.noprint{display:none!important}
   .sheet{margin:0;box-shadow:none;border-radius:0;max-width:none;grid-template-columns:170px 1fr}
-  .rbanner{padding:0 0 8px;border-bottom-width:2px;gap:14px}
+  .rbanner{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:0 0 14px;gap:14px}
   .rphoto{width:64px;height:64px;border-radius:14px;border-width:2px;box-shadow:none}
   .rbanner h1{font-size:21px}
   .rtitle{font-size:12.5px;margin:2px 0 3px}
   .rsum{font-size:10.5px}
+  .rqr img{width:44px;height:44px}
+  .rqr span{font-size:8.5px}
+  .rwave{height:14px}
   .rside{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:10px 14px 0 0}
   .rside h3{margin:10px 0 4px;font-size:10px}
   .rside h3:first-of-type{margin-top:0}
@@ -211,6 +223,9 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
   .item .when{font-size:10.5px}
   .item li{margin-bottom:0;line-height:1.32;font-size:11px}
   .item .lnk{font-size:10.5px}
+  .timeline{padding-left:14px}
+  .timeline::before{left:3px}
+  .timeline .item::before{left:-14px;width:8px;height:8px}
   .rv{opacity:1;transform:none}
   a{text-decoration:none}
 }

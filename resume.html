@@ -43,11 +43,16 @@
   <article class="sheet">
     <div class="rbanner">
       <img class="rphoto" src="images/me.jpg" alt="รูปของผม">
-      <div>
+      <div class="rbtext">
         <h1 data-bind="name">พงศธร ศิริพรหมพิทักษ์</h1>
         <p class="rtitle">Junior Software Developer (Full-Stack / Backend)</p>
         <p class="rsum">สาย ASP.NET Core MVC · C# · MySQL — พร้อมฝึกสหกิจ 4 เดือน เริ่มงานได้ทันที</p>
       </div>
+      <div class="rqr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&amp;margin=0&amp;data=https%3A%2F%2Fpstsrppt.github.io%2FPortfolioPstsrppt.github.io%2F" alt="QR Code ไปยังพอร์ตโฟลิโอ" width="60" height="60">
+        <span>Portfolio</span>
+      </div>
+      <svg class="rwave" viewBox="0 0 800 30" preserveAspectRatio="none" aria-hidden="true"><path d="M0,18 C160,30 320,4 480,14 C620,23 700,10 800,16 L800,30 L0,30 Z" fill="#fff"/></svg>
     </div>
     <aside class="rside">
       <h3>Contact</h3>
@@ -71,23 +76,25 @@
       <p>นักศึกษาสาขาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยศรีปทุม เคยทำเว็บระบบร้านค้าด้วย ASP.NET Core MVC ตั้งแต่ออกแบบฐานข้อมูลจนถึงหน้าเว็บที่ใช้งานได้จริง ระหว่างทางเจอเอกสาร DFD ที่เขียนไว้ไม่ตรงกับโค้ดจริง เลยกลับไปแก้ให้ตรงกัน ตั้งแต่นั้นก็ใส่ใจเรื่องเอกสารกับโค้ดต้องตรงกันมากขึ้น</p>
 
       <h2>Projects</h2>
-      <div class="item">
-        <div class="top"><b>CakeShop: ระบบอีคอมเมิร์ซร้านเค้ก</b><span class="when">งานเดี่ยวในรายวิชา</span></div>
-        <ul>
-          <li>พัฒนาระบบคนเดียวทั้งหมดด้วย ASP.NET Core MVC, C#, EF Core และ MySQL</li>
-          <li>มีระบบสมาชิก คำสั่งซื้อ การชำระเงิน สต็อก และโปรโมชัน</li>
-          <li>ออกแบบฐานข้อมูลและจัดทำเอกสาร DFD ระดับ 0 และ 1</li>
-        </ul>
-        <span class="lnk">github.com/Pstsrppt/cakeshop-ecommerce</span>
-      </div>
-      <div class="item">
-        <div class="top"><b>POLIS: ระบบเทรดอัตโนมัติที่ควบคุมความเสี่ยงได้เอง</b><span class="when">โปรเจกต์ส่วนตัว</span></div>
-        <ul>
-          <li>ออกแบบให้ AI หลายตัวทำงานร่วมกันแบบเป็นระบบ สื่อสารผ่านช่องทางกลาง แทนที่จะต่างตัวต่างทำงานจนควบคุมไม่ได้</li>
-          <li>สร้างกลไกตรวจสอบและจำกัดความเสี่ยงอัตโนมัติ ก่อนให้ระบบสั่งเทรดจริง</li>
-          <li>พัฒนาแดชบอร์ดติดตามผลการทำงานแบบเรียลไทม์ด้วย Python และ HTML/JS</li>
-        </ul>
-        <span class="lnk">github.com/Pstsrppt/polis-trading-system</span>
+      <div class="timeline">
+        <div class="item">
+          <div class="top"><b>CakeShop: ระบบอีคอมเมิร์ซร้านเค้ก</b><span class="when">งานเดี่ยวในรายวิชา</span></div>
+          <ul>
+            <li>พัฒนาระบบคนเดียวทั้งหมดด้วย ASP.NET Core MVC, C#, EF Core และ MySQL</li>
+            <li>มีระบบสมาชิก คำสั่งซื้อ การชำระเงิน สต็อก และโปรโมชัน</li>
+            <li>ออกแบบฐานข้อมูลและจัดทำเอกสาร DFD ระดับ 0 และ 1</li>
+          </ul>
+          <span class="lnk">github.com/Pstsrppt/cakeshop-ecommerce</span>
+        </div>
+        <div class="item">
+          <div class="top"><b>POLIS: ระบบเทรดอัตโนมัติที่ควบคุมความเสี่ยงได้เอง</b><span class="when">โปรเจกต์ส่วนตัว</span></div>
+          <ul>
+            <li>ออกแบบให้ AI หลายตัวทำงานร่วมกันแบบเป็นระบบ สื่อสารผ่านช่องทางกลาง แทนที่จะต่างตัวต่างทำงานจนควบคุมไม่ได้</li>
+            <li>สร้างกลไกตรวจสอบและจำกัดความเสี่ยงอัตโนมัติ ก่อนให้ระบบสั่งเทรดจริง</li>
+            <li>พัฒนาแดชบอร์ดติดตามผลการทำงานแบบเรียลไทม์ด้วย Python และ HTML/JS</li>
+          </ul>
+          <span class="lnk">github.com/Pstsrppt/polis-trading-system</span>
+        </div>
       </div>
 
       <h2>Education</h2>
