@@ -136,12 +136,12 @@ section{padding:72px 0}
 .rbtext{flex:1}
 .rbanner h1{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:clamp(30px,5vw,40px);letter-spacing:.015em;color:var(--ink);margin:0}
 .rbanner h2{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:5px 0 0}
-.rtitle{color:var(--blue);font-weight:600;font-size:17px;margin:8px 0 0}
+.rtitle{color:var(--muted);font-weight:400;font-size:17px;margin:8px 0 0}
 .rqr{flex:none;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
 .rqr img{width:60px;height:60px;border-radius:8px;background:#fff;padding:4px;box-shadow:0 2px 8px rgba(42,31,107,.15)}
-.rqr span{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600}
-.rqrgit{font-size:10px;color:var(--muted);text-decoration:none;overflow-wrap:anywhere;text-align:center}
-.rqrgit:hover{text-decoration:underline}
+.rqrlab{font-size:10.5px;letter-spacing:.02em;color:var(--muted);font-weight:600;margin:0}
+.rqrlab a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.rqrlab a:hover{color:var(--blue)}
 .rwave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:22px;display:block}
 .rside{background:var(--paper);padding:28px 24px;border-right:1px solid var(--line)}
 .rside h3{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px;font-weight:600}
@@ -203,8 +203,7 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
   .rbanner h2{font-size:12.5px;margin:4px 0 0}
   .rtitle{font-size:13.5px;margin:6px 0 0}
   .rqr img{width:56px;height:56px}
-  .rqr span{font-size:9.5px}
-  .rqrgit{font-size:8.5px}
+  .rqrlab{font-size:8.5px}
   .rwave{height:18px}
   .rside{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px 16px 0 0}
   .rside h3{margin:14px 0 6px;font-size:11.5px}
