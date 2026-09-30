@@ -132,7 +132,7 @@ section{padding:72px 0}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .sheet{max-width:860px;margin:-80px auto 0;position:relative;z-index:2;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(42,31,107,.16);display:grid;grid-template-columns:250px 1fr;overflow:hidden;font-family:Sarabun,Kanit,sans-serif}
 .rbanner{grid-column:1/-1;position:relative;padding:32px 38px 34px;display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,#FFF6E2,#FFFDF7)}
-.rphoto{width:150px;height:150px;border-radius:28px;object-fit:cover;display:block;flex:none;box-shadow:0 10px 24px rgba(42,31,107,.22)}
+.rphoto{width:150px;height:150px;border-radius:28px;object-fit:cover;display:block;flex:none;box-shadow:0 10px 24px rgba(42,31,107,.22);position:relative;z-index:3;margin-bottom:-24px}
 .rbtext{flex:1}
 .rbanner h1{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:clamp(30px,5vw,40px);letter-spacing:.015em;color:var(--ink);margin:0}
 .rbanner h2{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:5px 0 0}
@@ -196,7 +196,7 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
   .topnav,.hero,footer,.toolbar,#toast,.noprint{display:none!important}
   .sheet{margin:0;box-shadow:none;border-radius:0;max-width:none;grid-template-columns:200px 1fr}
   .rbanner{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:0 0 20px;gap:18px}
-  .rphoto{width:110px;height:110px;border-radius:22px;box-shadow:none}
+  .rphoto{width:110px;height:110px;border-radius:22px;box-shadow:none;margin-bottom:-16px}
   .rbanner h1{font-size:28px}
   .rbanner h2{font-size:12.5px;margin:4px 0 0}
   .rtitle{font-size:13.5px;margin:6px 0 0}
