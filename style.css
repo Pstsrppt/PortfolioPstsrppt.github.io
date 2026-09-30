@@ -134,7 +134,8 @@ section{padding:72px 0}
 .rbanner{grid-column:1/-1;position:relative;padding:32px 38px 34px;display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,#FFF6E2,#FFFDF7)}
 .rphoto{width:120px;height:120px;border-radius:28px;object-fit:cover;display:block;flex:none;border:3px solid var(--tag);box-shadow:0 10px 24px rgba(42,31,107,.22)}
 .rbtext{flex:1}
-.rbanner h1{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:clamp(26px,4vw,32px);color:var(--ink);margin:0}
+.rbanner h1{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:clamp(26px,4vw,32px);letter-spacing:.015em;color:var(--ink);margin:0}
+.rbanner h2{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:3px 0 4px}
 .rtitle{color:var(--blue);font-weight:600;font-size:16px;margin:4px 0 6px}
 .rsum{color:var(--muted);font-size:14px}
 .rqr{flex:none;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
