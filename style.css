@@ -132,16 +132,16 @@ section{padding:72px 0}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .sheet{max-width:860px;margin:-80px auto 0;position:relative;z-index:2;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(42,31,107,.16);display:grid;grid-template-columns:250px 1fr;overflow:hidden;font-family:Sarabun,Kanit,sans-serif}
 .rbanner{grid-column:1/-1;position:relative;padding:32px 38px 34px;display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,#FFF6E2,#FFFDF7)}
-.rphoto{width:120px;height:120px;border-radius:28px;object-fit:cover;display:block;flex:none;border:3px solid var(--tag);box-shadow:0 10px 24px rgba(42,31,107,.22)}
+.rphoto{width:150px;height:150px;border-radius:28px;object-fit:cover;display:block;flex:none;box-shadow:0 10px 24px rgba(42,31,107,.22)}
 .rbtext{flex:1}
 .rbanner h1{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:clamp(30px,5vw,40px);letter-spacing:.015em;color:var(--ink);margin:0}
 .rbanner h2{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:5px 0 0}
 .rtitle{color:var(--muted);font-weight:400;font-size:17px;margin:8px 0 0}
-.rqr{flex:none;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
-.rqr img{width:60px;height:60px;border-radius:8px;background:#fff;padding:4px;box-shadow:0 2px 8px rgba(42,31,107,.15)}
-.rqrlab{font-size:10.5px;letter-spacing:.02em;color:var(--muted);font-weight:600;margin:0}
-.rqrlab a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
-.rqrlab a:hover{color:var(--blue)}
+.rqr{flex:none;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.rqr img{width:64px;height:64px;border-radius:6px;display:block}
+.rqrlab{display:inline-flex;align-items:center;gap:5px;font-size:11px;letter-spacing:.02em;color:var(--muted);text-decoration:none}
+.rqrlab svg{width:13px;height:13px;fill:currentColor;flex:none}
+.rqrlab:hover{color:var(--blue)}
 .rwave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:22px;display:block}
 .rside{background:var(--paper);padding:28px 24px;border-right:1px solid var(--line)}
 .rside h3{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px;font-weight:600}
@@ -198,7 +198,7 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
   .topnav,.hero,footer,.toolbar,#toast,.noprint{display:none!important}
   .sheet{margin:0;box-shadow:none;border-radius:0;max-width:none;grid-template-columns:200px 1fr}
   .rbanner{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:0 0 20px;gap:18px}
-  .rphoto{width:92px;height:92px;border-radius:20px;border-width:3px;box-shadow:none}
+  .rphoto{width:110px;height:110px;border-radius:22px;box-shadow:none}
   .rbanner h1{font-size:28px}
   .rbanner h2{font-size:12.5px;margin:4px 0 0}
   .rtitle{font-size:13.5px;margin:6px 0 0}
