@@ -130,11 +130,11 @@ section{padding:72px 0}
 
 /* ---------- resume page ---------- */
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.sheet{max-width:860px;margin:-80px auto 0;position:relative;z-index:2;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(42,31,107,.16);display:grid;grid-template-columns:250px 1fr;overflow:hidden}
+.sheet{max-width:860px;margin:-80px auto 0;position:relative;z-index:2;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(42,31,107,.16);display:grid;grid-template-columns:250px 1fr;overflow:hidden;font-family:Sarabun,Kanit,sans-serif}
 .rbanner{grid-column:1/-1;position:relative;padding:32px 38px 34px;display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,#FFF6E2,#FFFDF7)}
 .rphoto{width:120px;height:120px;border-radius:28px;object-fit:cover;display:block;flex:none;border:3px solid var(--tag);box-shadow:0 10px 24px rgba(42,31,107,.22)}
 .rbtext{flex:1}
-.rbanner h1{font-family:Fredoka,Kanit,sans-serif;font-weight:600;font-size:clamp(26px,4vw,32px);color:var(--ink);margin:0}
+.rbanner h1{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:clamp(26px,4vw,32px);color:var(--ink);margin:0}
 .rtitle{color:var(--blue);font-weight:600;font-size:16px;margin:4px 0 6px}
 .rsum{color:var(--muted);font-size:14px}
 .rqr{flex:none;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
@@ -148,8 +148,8 @@ section{padding:72px 0}
 .rside ul{list-style:none;padding:0;margin:0}
 .rside li{margin-bottom:8px;font-size:13px}
 .rcontact a,.rcontact li{display:flex;align-items:center;gap:8px;color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
-.rcontact a:hover{color:var(--blue)}
-.rcontact svg{width:14px;height:14px;fill:currentColor;flex:none;color:var(--blue)}
+.rcontact a:hover{text-decoration:underline}
+.rcontact svg{width:14px;height:14px;fill:currentColor;flex:none;color:var(--muted)}
 .rside .chips span{background:#fff;border:1px solid var(--line);color:var(--ink);font-size:12px;padding:3px 10px}
 .rside .skillrow{margin-bottom:10px}
 .rside .skillrow:last-child{margin-bottom:0}
