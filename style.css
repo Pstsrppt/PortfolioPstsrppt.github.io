@@ -146,7 +146,7 @@ section{padding:72px 0}
 .rside{background:#fff;padding:28px 24px;border-right:1px solid var(--line)}
 .rside h3{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px;font-weight:600}
 .rside h3:first-of-type{margin-top:0}
-.rside p{font-size:13.5px;line-height:1.6;color:var(--ink)}
+.rside p{font-size:13.5px;line-height:1.6;color:var(--ink);margin:0 0 4px}
 .rside ul{list-style:none;padding:0;margin:0}
 .rside li{margin-bottom:8px;font-size:13px}
 .rcontact a,.rcontact li{display:flex;align-items:center;gap:8px;color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
@@ -157,10 +157,8 @@ section{padding:72px 0}
 .rside .skillrow:last-child{margin-bottom:0}
 .rside .skillrow b{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;font-weight:600}
 .rside .skillrow .note{font-size:11.5px;color:var(--muted);font-style:italic;margin:5px 0 0}
-.rlang{font-size:13px;color:var(--ink);margin-top:20px}
-.rlang b{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600}
 .mainr{padding:28px 38px 36px}
-.mainr h2{font-size:16px;letter-spacing:.02em;color:var(--ink);border-bottom:2px solid #000;padding-bottom:6px;margin:22px 0 12px}
+.mainr h2{font-size:16px;letter-spacing:.02em;color:var(--ink);border-bottom:1px solid #333;padding-bottom:6px;margin:22px 0 12px}
 .mainr h2:first-of-type{margin-top:0}
 .mainr p{line-height:1.7}
 .item{margin-bottom:16px}
@@ -174,7 +172,7 @@ section{padding:72px 0}
 .timeline{position:relative;padding-left:20px}
 .timeline::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:var(--line)}
 .timeline .item{position:relative}
-.timeline .item::before{content:"";position:absolute;left:-20px;top:5px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--tag)}
+.timeline .item::before{content:"";position:absolute;left:-20px;top:5px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--line)}
 
 /* ---------- footer, toast, reveal ---------- */
 footer{background:var(--deep);color:var(--soft);padding:40px 0;margin-top:72px}
@@ -214,8 +212,6 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
   .rside .skillrow b{font-size:11px;margin-bottom:4px}
   .rside .skillrow .note{font-size:10.5px;margin:4px 0 0}
   .rside .chips span{padding:2px 8px;font-size:11px}
-  .rlang{font-size:12px;margin-top:14px}
-  .rlang b{font-size:11.5px;margin-bottom:4px}
   .mainr{padding:16px 0 0 22px}
   .mainr h2{font-size:15.5px;margin:14px 0 7px;padding-bottom:4px}
   .mainr h2:first-of-type{margin-top:0}
