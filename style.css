@@ -188,44 +188,44 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
 .rv.in{opacity:1;transform:none}
 
 @media (max-width:900px){.hgrid{grid-template-columns:1fr}.frame{max-width:290px;margin-top:10px}.facts{grid-template-columns:1fr 1fr}.story{grid-template-columns:1fr;gap:10px}.story h2{position:static}.cards{grid-template-columns:1fr}.trow{grid-template-columns:1fr;gap:8px}.proof{text-align:left}.case{grid-template-columns:1fr}.sheet{grid-template-columns:1fr}}
-@media (max-width:700px){.logo .ln{display:none}.links{gap:14px}.links .hide-m{display:none}.hero{padding:40px 0 130px}.peek{right:-10px}.mainr{padding:26px 22px}}
+@media (max-width:700px){.logo .ln{display:none}.links{gap:14px}.links .hide-m{display:none}.hero{padding:40px 0 130px}.peek{right:-10px}.mainr{padding:26px 22px}.rbanner{flex-direction:column;text-align:center;padding:28px 20px}.rqr{order:3}.rside{padding:22px 20px;border-right:none;border-bottom:1px solid var(--line)}.rcontact a,.rcontact li{justify-content:center}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 @media print{
-  @page{size:A4;margin:10mm}
-  body{background:#fff;font-size:12px}
+  @page{size:A4;margin:12mm}
+  body{background:#fff;font-size:14px}
   .topnav,.hero,footer,.toolbar,#toast,.noprint{display:none!important}
-  .sheet{margin:0;box-shadow:none;border-radius:0;max-width:none;grid-template-columns:170px 1fr}
-  .rbanner{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:0 0 14px;gap:14px}
-  .rphoto{width:64px;height:64px;border-radius:14px;border-width:2px;box-shadow:none}
-  .rbanner h1{font-size:21px}
-  .rtitle{font-size:12.5px;margin:2px 0 3px}
-  .rsum{font-size:10.5px}
-  .rqr img{width:44px;height:44px}
-  .rqr span{font-size:8.5px}
-  .rwave{height:14px}
-  .rside{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:10px 14px 0 0}
-  .rside h3{margin:10px 0 4px;font-size:10px}
+  .sheet{margin:0;box-shadow:none;border-radius:0;max-width:none;grid-template-columns:200px 1fr}
+  .rbanner{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:0 0 20px;gap:18px}
+  .rphoto{width:92px;height:92px;border-radius:20px;border-width:3px;box-shadow:none}
+  .rbanner h1{font-size:25px}
+  .rtitle{font-size:14.5px;margin:3px 0 4px}
+  .rsum{font-size:12px}
+  .rqr img{width:56px;height:56px}
+  .rqr span{font-size:9.5px}
+  .rwave{height:18px}
+  .rside{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px 16px 0 0}
+  .rside h3{margin:14px 0 6px;font-size:11.5px}
   .rside h3:first-of-type{margin-top:0}
-  .rside p,.rside li{font-size:10.5px}
-  .rside li{margin-bottom:3px}
-  .rside .skillrow{margin-bottom:5px}
-  .rside .skillrow b{font-size:9.5px;margin-bottom:3px}
-  .rside .skillrow .note{font-size:9px;margin:3px 0 0}
-  .rside .chips span{padding:1px 6px;font-size:9.5px}
-  .rlang{font-size:10.5px;margin-top:10px}
-  .rlang b{font-size:10px;margin-bottom:3px}
-  .mainr{padding:10px 0 0 18px}
-  .mainr h2{font-size:13.5px;margin:10px 0 5px;padding-bottom:3px}
+  .rside p,.rside li{font-size:12px}
+  .rside li{margin-bottom:5px}
+  .rside .skillrow{margin-bottom:8px}
+  .rside .skillrow b{font-size:11px;margin-bottom:4px}
+  .rside .skillrow .note{font-size:10.5px;margin:4px 0 0}
+  .rside .chips span{padding:2px 8px;font-size:11px}
+  .rlang{font-size:12px;margin-top:14px}
+  .rlang b{font-size:11.5px;margin-bottom:4px}
+  .mainr{padding:16px 0 0 22px}
+  .mainr h2{font-size:15.5px;margin:14px 0 7px;padding-bottom:4px}
   .mainr h2:first-of-type{margin-top:0}
-  .mainr p{line-height:1.4;margin:3px 0}
-  .item{margin-bottom:7px}
-  .item b{font-size:12.5px}
-  .item .when{font-size:10.5px}
-  .item li{margin-bottom:0;line-height:1.32;font-size:11px}
-  .item .lnk{font-size:10.5px}
-  .timeline{padding-left:14px}
+  .mainr p{line-height:1.55;margin:4px 0}
+  .item{margin-bottom:10px}
+  .item b{font-size:14.5px}
+  .item .when{font-size:12px}
+  .item li{margin-bottom:1px;line-height:1.5;font-size:12.5px}
+  .item .lnk{font-size:12px}
+  .timeline{padding-left:16px}
   .timeline::before{left:3px}
-  .timeline .item::before{left:-14px;width:8px;height:8px}
+  .timeline .item::before{left:-16px;width:9px;height:9px}
   .rv{opacity:1;transform:none}
   a{text-decoration:none}
 }
