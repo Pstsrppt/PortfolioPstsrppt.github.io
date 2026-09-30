@@ -134,13 +134,14 @@ section{padding:72px 0}
 .rbanner{grid-column:1/-1;position:relative;padding:32px 38px 34px;display:flex;align-items:center;gap:22px;background:linear-gradient(135deg,#FFF6E2,#FFFDF7)}
 .rphoto{width:120px;height:120px;border-radius:28px;object-fit:cover;display:block;flex:none;border:3px solid var(--tag);box-shadow:0 10px 24px rgba(42,31,107,.22)}
 .rbtext{flex:1}
-.rbanner h1{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:clamp(26px,4vw,32px);letter-spacing:.015em;color:var(--ink);margin:0}
-.rbanner h2{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:3px 0 4px}
-.rtitle{color:var(--blue);font-weight:600;font-size:16px;margin:4px 0 6px}
-.rsum{color:var(--muted);font-size:14px}
+.rbanner h1{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:clamp(30px,5vw,40px);letter-spacing:.015em;color:var(--ink);margin:0}
+.rbanner h2{font-family:Sarabun,Kanit,sans-serif;font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:5px 0 0}
+.rtitle{color:var(--blue);font-weight:600;font-size:17px;margin:8px 0 0}
 .rqr{flex:none;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
 .rqr img{width:60px;height:60px;border-radius:8px;background:#fff;padding:4px;box-shadow:0 2px 8px rgba(42,31,107,.15)}
 .rqr span{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.rqrgit{font-size:10px;color:var(--muted);text-decoration:none;overflow-wrap:anywhere;text-align:center}
+.rqrgit:hover{text-decoration:underline}
 .rwave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:22px;display:block}
 .rside{background:var(--paper);padding:28px 24px;border-right:1px solid var(--line)}
 .rside h3{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px;font-weight:600}
@@ -198,11 +199,12 @@ footer .fl svg{width:16px;height:16px;fill:currentColor;flex:none}
   .sheet{margin:0;box-shadow:none;border-radius:0;max-width:none;grid-template-columns:200px 1fr}
   .rbanner{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:0 0 20px;gap:18px}
   .rphoto{width:92px;height:92px;border-radius:20px;border-width:3px;box-shadow:none}
-  .rbanner h1{font-size:25px}
-  .rtitle{font-size:14.5px;margin:3px 0 4px}
-  .rsum{font-size:12px}
+  .rbanner h1{font-size:28px}
+  .rbanner h2{font-size:12.5px;margin:4px 0 0}
+  .rtitle{font-size:13.5px;margin:6px 0 0}
   .rqr img{width:56px;height:56px}
   .rqr span{font-size:9.5px}
+  .rqrgit{font-size:8.5px}
   .rwave{height:18px}
   .rside{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:16px 16px 0 0}
   .rside h3{margin:14px 0 6px;font-size:11.5px}
