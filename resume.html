@@ -20,17 +20,17 @@
 <nav class="topnav" aria-label="เมนูหลัก"><div class="wrap">
   <a class="logo" href="index.html"><span data-bind="first">Pongsathorn</span><span class="ln"> <span data-bind="last">Siriprompitak</span></span></a>
   <div class="links">
-    <a class="hide-m" href="index.html">โลก 3D</a>
-    <a href="projects.html">ผลงาน</a>
-    <a href="about.html">เกี่ยวกับผม</a>
-    <a class="btn y sm" href="resume.html">เรซูเม่</a>
+    <a class="hide-m" href="index.html" data-en="3D World">โลก 3D</a>
+    <a href="projects.html" data-en="Projects">ผลงาน</a>
+    <a href="about.html" data-en="About">เกี่ยวกับผม</a>
+    <a class="btn y sm" href="resume.html" data-en="Resume">เรซูเม่</a>
   </div>
 </div></nav>
 <header class="hero short" data-glow>
   <div class="wrap">
-    <p class="kick" style="color:var(--tag)">เรซูเม่</p>
-    <h1>ทุกอย่างเกี่ยวกับผม<span>ในหน้าเดียว</span></h1>
-    <div class="toolbar"><button class="btn y" data-print>บันทึกเป็น PDF</button><button class="btn g" data-copy>คัดลอกอีเมล</button></div>
+    <p class="kick" style="color:var(--tag)" data-en="Resume">เรซูเม่</p>
+    <h1><b data-en="Everything About Me" style="font-weight:inherit">ทุกอย่างเกี่ยวกับผม</b><span data-en="On One Page">ในหน้าเดียว</span></h1>
+    <div class="toolbar"><button class="btn y" data-print data-en="Save as PDF">บันทึกเป็น PDF</button><button class="btn g" data-copy data-en="Copy Email">คัดลอกอีเมล</button><button class="btn g" id="langToggle" type="button">EN</button></div>
   </div>
   <svg class="hills" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
     <polygon fill="#3F3596" points="0,95 120,60 260,88 400,42 560,84 700,52 860,88 1000,48 1160,84 1300,56 1440,80 1440,150 0,150"/>
@@ -61,39 +61,39 @@
         <li><a href="tel:0980597942"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span data-bind="phone">098-059-7942</span></a></li>
         <li><a data-link="github"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>github.com/Pstsrppt</a></li>
         <li><a data-link="linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>linkedin.com/in/pongsathorn-siriprompithak</a></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.3"/></svg>กรุงเทพฯ</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.3"/></svg><span data-en="Bangkok, Thailand">กรุงเทพฯ</span></li>
       </ul>
 
       <h3>Technical Skills</h3>
       <div class="skillrow"><b>Languages &amp; Frameworks</b><div class="chips"><span>C#</span><span>ASP.NET Core MVC</span><span>EF Core</span><span>MySQL</span></div></div>
-      <div class="skillrow"><b>AI &amp; Data</b><div class="chips"><span>Python</span><span>NLP</span><span>Data cleaning</span><span>EDA</span></div><p class="note">กำลังเรียนรู้: RAG, LLM APIs</p></div>
+      <div class="skillrow"><b>AI &amp; Data</b><div class="chips"><span>Python</span><span>NLP</span><span>Data cleaning</span><span>EDA</span></div><p class="note" data-en="Currently learning: RAG, LLM APIs">กำลังเรียนรู้: RAG, LLM APIs</p></div>
       <div class="skillrow"><b>Tools &amp; Systems</b><div class="chips"><span>Git / GitHub</span><span>n8n</span><span>DFD</span><span>Flowchart</span><span>Requirement</span></div></div>
 
       <h3>Languages</h3>
-      <p>ไทย (เจ้าของภาษา)</p>
-      <p>อังกฤษ (พื้นฐาน)</p>
+      <p data-en="Thai (Native)">ไทย (เจ้าของภาษา)</p>
+      <p data-en="English (Basic)">อังกฤษ (พื้นฐาน)</p>
     </aside>
     <div class="mainr">
       <h2>Profile</h2>
-      <p>นักศึกษาสาขาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยศรีปทุม ทำเว็บระบบร้านค้าด้วย ASP.NET Core MVC ตั้งแต่ออกแบบฐานข้อมูลจนถึงหน้าเว็บที่ใช้งานได้จริง ระหว่างทางเจอเอกสาร DFD ที่เขียนไว้ไม่ตรงกับโค้ดจริง เลยกลับไปแก้ให้ตรงกัน ตั้งแต่นั้นก็ใส่ใจเรื่องเอกสารกับโค้ดต้องตรงกันมากขึ้น สนใจเจาะลึกสาย Backend และงานด้านข้อมูลเป็นพิเศษ</p>
+      <p data-en="Computer Science and Software Development Innovation student, Faculty of Information Technology, Sripatum University. Built a web-based e-commerce system with ASP.NET Core MVC, from database design to a fully working site. Along the way, found that the DFD documentation didn't match the actual code, went back and fixed it to align — and have paid closer attention to keeping documentation and code consistent ever since. Particularly interested in going deeper into Backend and data work.">นักศึกษาสาขาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ คณะเทคโนโลยีสารสนเทศ มหาวิทยาลัยศรีปทุม ทำเว็บระบบร้านค้าด้วย ASP.NET Core MVC ตั้งแต่ออกแบบฐานข้อมูลจนถึงหน้าเว็บที่ใช้งานได้จริง ระหว่างทางเจอเอกสาร DFD ที่เขียนไว้ไม่ตรงกับโค้ดจริง เลยกลับไปแก้ให้ตรงกัน ตั้งแต่นั้นก็ใส่ใจเรื่องเอกสารกับโค้ดต้องตรงกันมากขึ้น สนใจเจาะลึกสาย Backend และงานด้านข้อมูลเป็นพิเศษ</p>
 
       <h2>Projects</h2>
       <div class="timeline">
         <div class="item">
-          <div class="top"><b>CakeShop: ระบบอีคอมเมิร์ซร้านเค้ก</b><span class="when">งานเดี่ยวในรายวิชา</span></div>
+          <div class="top"><b data-en="CakeShop: Cake Shop E-commerce System">CakeShop: ระบบอีคอมเมิร์ซร้านเค้ก</b><span class="when" data-en="Individual Coursework Project">งานเดี่ยวในรายวิชา</span></div>
           <ul>
-            <li>พัฒนาระบบคนเดียวทั้งหมดด้วย ASP.NET Core MVC, C#, EF Core และ MySQL</li>
-            <li>มีระบบสมาชิก คำสั่งซื้อ การชำระเงิน สต็อก และโปรโมชัน</li>
-            <li>ออกแบบฐานข้อมูลและจัดทำเอกสาร DFD ระดับ 0 และ 1</li>
+            <li data-en="Built the entire system solo using ASP.NET Core MVC, C#, EF Core, and MySQL">พัฒนาระบบคนเดียวทั้งหมดด้วย ASP.NET Core MVC, C#, EF Core และ MySQL</li>
+            <li data-en="Includes membership, orders, payments, stock, and promotions">มีระบบสมาชิก คำสั่งซื้อ การชำระเงิน สต็อก และโปรโมชัน</li>
+            <li data-en="Designed the database and produced Level 0 and Level 1 DFD documentation">ออกแบบฐานข้อมูลและจัดทำเอกสาร DFD ระดับ 0 และ 1</li>
           </ul>
           <span class="lnk">github.com/Pstsrppt/cakeshop-ecommerce</span>
         </div>
         <div class="item">
-          <div class="top"><b>POLIS: ระบบเทรดอัตโนมัติที่ควบคุมความเสี่ยงได้เอง</b><span class="when">โปรเจกต์ส่วนตัว</span></div>
+          <div class="top"><b data-en="POLIS: Risk-Controlled Automated Trading System">POLIS: ระบบเทรดอัตโนมัติที่ควบคุมความเสี่ยงได้เอง</b><span class="when" data-en="Personal Project">โปรเจกต์ส่วนตัว</span></div>
           <ul>
-            <li>ออกแบบให้ AI หลายตัวทำงานร่วมกันแบบเป็นระบบ สื่อสารผ่านช่องทางกลาง แทนที่จะต่างตัวต่างทำงานจนควบคุมไม่ได้</li>
-            <li>สร้างกลไกตรวจสอบและจำกัดความเสี่ยงอัตโนมัติ ก่อนให้ระบบสั่งเทรดจริง</li>
-            <li>พัฒนาแดชบอร์ดติดตามผลการทำงานแบบเรียลไทม์ด้วย Python และ HTML/JS</li>
+            <li data-en="Designed multiple AI agents to work together systematically through a central communication channel, instead of operating independently in an uncontrollable way">ออกแบบให้ AI หลายตัวทำงานร่วมกันแบบเป็นระบบ สื่อสารผ่านช่องทางกลาง แทนที่จะต่างตัวต่างทำงานจนควบคุมไม่ได้</li>
+            <li data-en="Built an automatic risk-checking and limiting mechanism before the system executes real trades">สร้างกลไกตรวจสอบและจำกัดความเสี่ยงอัตโนมัติ ก่อนให้ระบบสั่งเทรดจริง</li>
+            <li data-en="Developed a real-time monitoring dashboard using Python and HTML/JS">พัฒนาแดชบอร์ดติดตามผลการทำงานแบบเรียลไทม์ด้วย Python และ HTML/JS</li>
           </ul>
           <span class="lnk">github.com/Pstsrppt/polis-trading-system</span>
         </div>
@@ -101,23 +101,44 @@
 
       <h2>Education</h2>
       <div class="item">
-        <div class="top"><b>มหาวิทยาลัยศรีปทุม</b><span class="when">2566 – 2570 (คาดว่าจะจบ)</span></div>
-        <p><span data-bind="faculty">คณะเทคโนโลยีสารสนเทศ</span> · สาขาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ · เกรดเฉลี่ยสะสม <span data-bind="gpa">3.18</span></p>
+        <div class="top"><b data-en="Sripatum University">มหาวิทยาลัยศรีปทุม</b><span class="when" data-en="2023 – 2027 (Expected)">2566 – 2570 (คาดว่าจะจบ)</span></div>
+        <p><span data-bind="faculty" data-en="Faculty of Information Technology">คณะเทคโนโลยีสารสนเทศ</span> · <span data-en="Computer Science and Software Development Innovation">สาขาวิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์</span> · <span data-en="Cumulative GPA">เกรดเฉลี่ยสะสม</span> <span data-bind="gpa">3.18</span></p>
       </div>
 
       <h2>Experience</h2>
       <div class="item">
-        <div class="top"><b>โปรเจกต์กลุ่ม: เตรียมชุดข้อมูลภาษาไทย</b></div>
-        <ul><li>ทำ EDA (Exploratory Data Analysis) และคลีนชุดข้อมูลภาษาไทยในโปรเจกต์กลุ่ม เพื่อเตรียมข้อมูลให้พร้อมใช้งานต่อ</li></ul>
+        <div class="top"><b data-en="Group Project: Thai Dataset Preparation">โปรเจกต์กลุ่ม: เตรียมชุดข้อมูลภาษาไทย</b></div>
+        <ul><li data-en="Performed EDA (Exploratory Data Analysis) and cleaned a Thai-language dataset in a group project to prepare it for downstream use">ทำ EDA (Exploratory Data Analysis) และคลีนชุดข้อมูลภาษาไทยในโปรเจกต์กลุ่ม เพื่อเตรียมข้อมูลให้พร้อมใช้งานต่อ</li></ul>
       </div>
     </div>
   </article>
 </div>
 <footer><div class="wrap">
-  <div><b data-bind="name">Pongsathorn Siriprompitak</b><br>สร้างด้วย Vibe Coding และ HTML, CSS, JavaScript</div>
-  <div class="fl"><a href="index.html">← กลับไปโลก 3D</a><a data-link="github"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a><a data-link="linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a><a data-link="email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.8 6.2L19.8 6H4.2zM4 7.9V18h16V7.9l-8 6.4-8-6.4z"/></svg>อีเมล</a></div>
+  <div><b data-bind="name">Pongsathorn Siriprompitak</b><br><span data-en="Built with Vibe Coding using HTML, CSS, JavaScript">สร้างด้วย Vibe Coding และ HTML, CSS, JavaScript</span></div>
+  <div class="fl"><a href="index.html" data-en="← Back to 3D World">← กลับไปโลก 3D</a><a data-link="github"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a><a data-link="linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a><a data-link="email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.8 6.2L19.8 6H4.2zM4 7.9V18h16V7.9l-8 6.4-8-6.4z"/></svg><span data-en="Email">อีเมล</span></a></div>
 </div></footer>
 <script src="data.js"></script>
 <script src="site.js"></script>
+<script>
+(function(){
+  var btn = document.getElementById('langToggle');
+  if(!btn) return;
+  var isEN = false;
+  function setLang(en){
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      if(en){
+        if(el.dataset.th === undefined) el.dataset.th = el.textContent;
+        el.textContent = el.dataset.en;
+      } else if(el.dataset.th !== undefined){
+        el.textContent = el.dataset.th;
+      }
+    });
+    document.documentElement.lang = en ? 'en' : 'th';
+    btn.textContent = en ? 'ไทย' : 'EN';
+    isEN = en;
+  }
+  btn.addEventListener('click', function(){ setLang(!isEN); });
+})();
+</script>
 </body>
 </html>
