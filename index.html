@@ -56,10 +56,10 @@ button{font:inherit;cursor:pointer}
 #dots{display:flex;gap:6px;justify-content:center;margin-top:4px}
 #dots button{width:10px;height:10px;padding:0;border:1px solid var(--text);background:transparent;border-radius:2px}
 #dots button.on{background:var(--amber);border-color:var(--amber)}
-#openBtn{display:none;background:var(--tag);color:var(--ink);border:0;border-radius:12px;height:48px;padding:0 18px;font-weight:600;box-shadow:0 5px 0 #b88f1f}
-#openBtn.show{display:block}
-#backBtn{display:none;background:#D9404F;color:#fff;border:0;border-radius:12px;height:48px;padding:0 16px;font-weight:600;box-shadow:0 5px 0 #A32E3A}
-#backBtn.show{display:block}
+#openBtn{display:none;align-items:center;justify-content:center;text-align:center;line-height:1.15;background:var(--tag);color:var(--ink);border:0;border-radius:12px;min-height:48px;padding:6px 18px;font-weight:600;box-shadow:0 5px 0 #b88f1f}
+#openBtn.show{display:flex}
+#backBtn{display:none;align-items:center;justify-content:center;text-align:center;line-height:1.15;background:#D9404F;color:#fff;border:0;border-radius:12px;min-height:48px;padding:6px 16px;font-weight:600;box-shadow:0 5px 0 #A32E3A}
+#backBtn.show{display:flex}
 #backBtn:active{transform:translateY(3px);box-shadow:0 2px 0 #A32E3A}
 #keys{bottom:26px;left:22px;font-size:14px;color:var(--soft);line-height:1.9}
 #keys kbd{font-family:inherit;border:1px solid rgba(234,231,255,.4);border-radius:5px;padding:0 6px;margin-right:6px;color:var(--text)}
@@ -165,6 +165,18 @@ button{font:inherit;cursor:pointer}
 @media (max-height:640px){.lamp{display:none}#intro h1{font-size:38px;margin-bottom:14px}}
 @media (max-width:720px){#helpBtn{bottom:auto;top:64px;right:16px;width:44px;height:44px;font-size:20px}#help{bottom:auto;top:116px;right:12px}#tour{top:118px}}
 @media (max-width:720px){#keys{display:none}#label{min-width:130px}#top .logo{font-size:28px}}
+@media (max-width:480px){
+  #top{flex-wrap:wrap;row-gap:8px}
+  #top .logo{font-size:20px}
+  .pill{padding:6px 14px;font-size:13px}
+  #helpBtn{top:94px}
+  #help{top:146px}
+  #nav{gap:6px}
+  #nav .arrow{width:40px;height:40px;font-size:18px}
+  #label{min-width:96px;padding:5px 10px}
+  #label b{font-size:16px}
+  #openBtn,#backBtn{font-size:13px;padding:6px 10px;min-height:40px}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
