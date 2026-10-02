@@ -13,7 +13,7 @@ var SITE = {
   careerRole: 'นักพัฒนาซอฟต์แวร์ระดับจูเนียร์',   // สายงานที่มองหา (ตัวใหญ่)
   careerFocus: 'สาย ASP.NET Core MVC / C# / MySQL',   // คำขยาย (ตัวเล็กบรรทัดล่าง)
   avail: 'พร้อมเริ่มฝึกสหกิจได้ทันที หลักสูตร 4 เดือน',
-  major: 'วิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ (Software Full Stack Development)',
+  major: 'วิทยาการคอมพิวเตอร์และนวัตกรรมการพัฒนาซอฟต์แวร์ (Computer Science and Software Development Innovation)',
   faculty: 'คณะเทคโนโลยีสารสนเทศ',
   gpa: '3.18',
   university: 'ม.ศรีปทุม',
