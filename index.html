@@ -46,12 +46,12 @@ button{font:inherit;cursor:pointer}
 .hud.on{opacity:1;pointer-events:auto}
 #top{top:18px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center}
 #top .logo{font-family:Fredoka,Kanit,sans-serif;font-size:34px}
-.pill{background:rgba(21,15,63,.72);border:1px solid rgba(234,231,255,.25);color:var(--text);border-radius:40px;padding:8px 18px;backdrop-filter:blur(6px)}
+.pill{background:rgba(21,15,63,.88);border:1px solid rgba(234,231,255,.25);color:var(--text);border-radius:40px;padding:8px 18px;backdrop-filter:blur(6px)}
 .pill:hover{border-color:var(--amber)}
 #nav{bottom:22px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px}
 #nav .arrow{width:48px;height:48px;border-radius:12px;border:0;background:var(--blue);color:#fff;font-size:22px;box-shadow:0 5px 0 #2a26b8}
 #nav .arrow:active{transform:translateY(3px);box-shadow:0 2px 0 #2a26b8}
-#label{min-width:190px;text-align:center;background:rgba(21,15,63,.72);border-radius:12px;padding:6px 16px;backdrop-filter:blur(6px)}
+#label{min-width:190px;text-align:center;background:rgba(21,15,63,.88);border-radius:12px;padding:6px 16px;backdrop-filter:blur(6px)}
 #label b{display:block;font-family:Fredoka,Kanit,sans-serif;font-size:28px;line-height:1.1}
 #dots{display:flex;gap:6px;justify-content:center;margin-top:4px}
 #dots button{width:10px;height:10px;padding:0;border:1px solid var(--text);background:transparent;border-radius:2px}
@@ -685,7 +685,7 @@ function updateShuttle(t){
 let cur=0, focus=false, started=false, modalOpen=false;
 const camBase=V(40,30,42), look=V(40,0,0), mouse=new THREE.Vector2(), par=new THREE.Vector2();
 let tw=null;
-function distMul(){ const a=innerWidth/innerHeight; return Math.min(Math.max(1.75/a,1),2.3); }
+function distMul(){ const a=innerWidth/innerHeight; return Math.min(Math.max(1.75/a,1),5); }
 function camFor(i){ const d=13*distMul(); return [V(i*GAP,4.2+(d-13)*.18,d), V(i*GAP,3.3,0)]; }
 function focusCam(){ return cur===3 ? [V(3*GAP+1,3.6,-.7),V(3*GAP+1,1.2,-9)] : [V(2*GAP,3.35,Math.max(6.3,6.3*distMul()*.8)),V(2*GAP,3.35,0)]; }
 function flyTo(pos,target,dur,arc=0){ tw={ p0:camBase.clone(), p1:pos, l0:look.clone(), l1:target, t0:clock.getElapsedTime(), dur:reduce?.001:dur, arc }; }
