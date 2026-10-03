@@ -20,7 +20,7 @@
 html,body{height:100%;background:var(--night);color:var(--text);font-family:Kanit,sans-serif;font-weight:300;overflow:hidden}
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
-#world{position:fixed;inset:0;display:block}
+#world{position:fixed;inset:0;display:block;z-index:0}
 
 /* ---------- intro ---------- */
 #intro{position:fixed;inset:0;z-index:20;display:grid;place-items:center;text-align:center;background:radial-gradient(ellipse at 50% 60%,rgba(74,69,255,.35),rgba(21,15,63,.92) 60%);transition:opacity 1.1s ease,transform 1.1s ease}
@@ -243,7 +243,7 @@ button{font:inherit;cursor:pointer}
 /* ===================== CONTENT (edit here) ===================== */
 const PROJECTS = [
   { slug:'cakeshop', name:'CakeShop', tag:'ผลงานเด่น / งานเดี่ยวในรายวิชา', featured:true, team:'ทำคนเดียว', role:'ออกแบบฐานข้อมูล + ทำหน้าเว็บ',
-    problem:'โจทย์รายวิชา: จำลองระบบขายของร้านเค้กให้ครบทั้งกระบวนการ ไม่ใช่แค่หน้าเว็บสวยๆ แต่ต้องมีของจริงเบื้องหลัง', solution:'ระบบอีคอมเมิร์ซที่มีสมาชิก คำสั่งซื้อ การชำระเงิน สต็อก และโปรโมชัน พร้อมเอกสาร DFD ระดับ 0 และ 1',
+    problem:'โจทย์รายวิชา: จำลองระบบขายของร้านเค้กให้ครบทั้งกระบวนการ ตั้งแต่สมาชิก คำสั่งซื้อ การชำระเงิน สต็อก ไปจนถึงโปรโมชัน', solution:'ระบบอีคอมเมิร์ซที่มีสมาชิก คำสั่งซื้อ การชำระเงิน สต็อก และโปรโมชัน พร้อมเอกสาร DFD ระดับ 0 และ 1',
     tech:['ASP.NET Core MVC','C#','EF Core','MySQL'], links:[['GitHub','https://github.com/Pstsrppt/cakeshop-ecommerce']], color:'#FF7AB6', img:'images/cakeshop.png' },
   { slug:'polis', name:'POLIS', tag:'โปรเจกต์ส่วนตัว', team:'ทำคนเดียว', role:'ออกแบบสถาปัตยกรรม + เขียนแกนหลักด้วย Python',
     problem:'อยากให้ AI หลายตัวทำงานร่วมกันอย่างเป็นระบบ ไม่ใช่ต่างคนต่างทำงานจนควบคุมและตรวจสอบยาก', solution:'ระบบทดสอบและรันกลยุทธ์เทรดอัตโนมัติ ออกแบบแบบ Event-driven ให้ AI หลายตัวสื่อสารผ่าน Event Bus มี Policy Engine คุมความเสี่ยง',
