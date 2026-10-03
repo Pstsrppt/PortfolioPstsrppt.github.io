@@ -826,8 +826,13 @@ addEventListener('keydown',e=>{
   else if(k==='Enter'){ if(cur===2) focus?openModal():enterFocus(); else if(cur===3) focus?hitShuttle():enterFocus(); }
   else if(k==='Escape'){ if(focus) exitFocus(); }
 });
-addEventListener('resize',()=>{ camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth,innerHeight);
-  if(started&&!tw){ const [p,l]=focus?focusCam():camFor(cur); camBase.copy(p); look.copy(l); } });
+let lastVW=innerWidth, lastVH=innerHeight;
+function syncViewport(){
+  camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth,innerHeight);
+  if(started){ const [p,l]=focus?focusCam():camFor(cur);
+    if(tw){ tw.p1=p; tw.l1=l; } else { camBase.copy(p); look.copy(l); } }
+}
+addEventListener('resize',()=>{ lastVW=innerWidth; lastVH=innerHeight; syncViewport(); });
 
 /* ===================== INTRO ===================== */
 let popStart=Infinity, igniteStart=Infinity;
@@ -847,6 +852,7 @@ $('enter').onclick=start;
 let lastT=0;
 function loop(){
   const t=clock.getElapsedTime(), dt=Math.min(t-lastT,.05); lastT=t;
+  if(innerWidth!==lastVW||innerHeight!==lastVH){ lastVW=innerWidth; lastVH=innerHeight; syncViewport(); }
   if(!started){ camBase.set(40+Math.sin(t*.08)*32,26,40); look.set(40,1,-4); }
   if(tw){ const k=Math.min((t-tw.t0)/tw.dur,1), e=ease(k);
     camBase.lerpVectors(tw.p0,tw.p1,e); camBase.y+=Math.sin(e*Math.PI)*tw.arc; look.lerpVectors(tw.l0,tw.l1,e); if(k>=1) tw=null; }
