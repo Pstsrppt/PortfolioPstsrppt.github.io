@@ -301,7 +301,7 @@ function drawBoard(T,lines,o={}){
   const light=/^#(f|e|d)/i.test(col);
   x.textAlign='center'; x.textBaseline='middle'; x.lineJoin='round';
   lines.forEach((l,i)=>{ let s2=size; const setF=()=>x.font=`${wt} ${s2}px ${fam}`; setF();
-    while(x.measureText(l).width>w*.86 && s2>12){ s2-=3; setF(); }
+    while(x.measureText(l).width>w*.78 && s2>12){ s2-=2; setF(); }
     const y=h/2+(i-(n-1)/2)*size*1.06;
     if(light){ x.strokeStyle='rgba(16,9,52,.9)'; x.lineWidth=s2*.13; x.strokeText(l,w/2,y); }
     x.fillStyle=col; x.fillText(l,w/2,y); });
