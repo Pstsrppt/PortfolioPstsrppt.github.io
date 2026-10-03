@@ -298,13 +298,15 @@ function drawBoard(T,lines,o={}){
   else plank(x,w,h,o.bg||'#3A308F');
   const n=lines.length, fam=o.font||'Fredoka, Kanit', wt=o.weight||600, col=o.color||'#FFFFFF';
   const size=o.size ? o.size*PX/128 : Math.min(h/(n+.25)*.88, 1.4*PX);
-  const light=/^#(f|e|d)/i.test(col);
-  x.textAlign='center'; x.textBaseline='middle'; x.lineJoin='round';
+  const light=/^#(f|e|d)/i.test(col), maxW=w*.86;
+  x.textAlign='left'; x.direction='ltr'; x.textBaseline='middle'; x.lineJoin='round';
   lines.forEach((l,i)=>{ let s2=size; const setF=()=>x.font=`${wt} ${s2}px ${fam}`; setF();
     while(x.measureText(l).width>w*.78 && s2>12){ s2-=2; setF(); }
+    const tw=x.measureText(l).width, sx=tw>maxW?maxW/tw:1;
     const y=h/2+(i-(n-1)/2)*size*1.06;
-    if(light){ x.strokeStyle='rgba(16,9,52,.9)'; x.lineWidth=s2*.13; x.strokeText(l,w/2,y); }
-    x.fillStyle=col; x.fillText(l,w/2,y); });
+    x.save(); x.translate(w/2,y); if(sx!==1) x.scale(sx,1);
+    if(light){ x.strokeStyle='rgba(16,9,52,.9)'; x.lineWidth=s2*.13; x.strokeText(l,-tw/2,0); }
+    x.fillStyle=col; x.fillText(l,-tw/2,0); x.restore(); });
   T.t.needsUpdate=true;
 }
 function drawArrow(T,dir){ const {c,x}=T, w=c.width, h=c.height;
