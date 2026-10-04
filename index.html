@@ -506,25 +506,26 @@ function drawScreen(p){
   ['#FF5F7E','#FFC54D','#3FE0C5'].forEach((col,i)=>{ x.fillStyle=col; x.beginPath(); x.arc(26+i*22,23,7,0,7); x.fill(); });
   x.fillStyle='#2A2470'; rr(x,100,11,430,24,12); x.fill();
   x.textAlign='left'; x.textBaseline='middle'; x.fillStyle='#A9A3E8'; x.font='400 15px Kanit'; x.fillText('pstsrppt.github.io/work/'+p.slug,116,24);
-  x.save(); rr(x,574,78,410,290,14); x.clip();
+  const bx=0, by=46, bw=w, bh=240;
+  x.save(); x.beginPath(); x.rect(bx,by,bw,bh); x.clip();
   const shot=p.img?loadShotImg(p):null;
   if(shot&&shot.complete&&shot.naturalWidth){
-    const rx=574,ry=78,rw=410,rh=290, s=Math.max(rw/shot.naturalWidth,rh/shot.naturalHeight), dw=shot.naturalWidth*s, dh=shot.naturalHeight*s;
-    x.drawImage(shot, rx+(rw-dw)/2, ry, dw, dh);
+    const s=Math.max(bw/shot.naturalWidth,bh/shot.naturalHeight), dw=shot.naturalWidth*s, dh=shot.naturalHeight*s;
+    x.drawImage(shot, bx+(bw-dw)/2, by, dw, dh);
   } else {
-    for(let i=-15;i<35;i++){ x.fillStyle=i%2?'#191444':'#211B57'; x.beginPath(); x.moveTo(574+i*22,78); x.lineTo(596+i*22,78); x.lineTo(306+i*22,368); x.lineTo(284+i*22,368); x.fill(); }
-    x.fillStyle=p.color; x.globalAlpha=.85; x.beginPath(); x.arc(779,210,86,0,7); x.fill(); x.globalAlpha=1;
-    x.fillStyle='#fff'; x.font='600 19px Kanit'; x.textAlign='center'; x.fillText('ใส่ภาพหน้าจอตรงนี้',779,338);
+    for(let i=-6;i<60;i++){ x.fillStyle=i%2?'#191444':'#211B57'; x.beginPath(); x.moveTo(i*22,by); x.lineTo(22+i*22,by); x.lineTo(22+i*22-120,by+bh); x.lineTo(i*22-120,by+bh); x.fill(); }
+    x.fillStyle=p.color; x.globalAlpha=.85; x.beginPath(); x.arc(bw/2,by+92,56,0,7); x.fill(); x.globalAlpha=1;
+    x.fillStyle='#fff'; x.font='600 19px Kanit'; x.textAlign='center'; x.fillText('ใส่ภาพหน้าจอตรงนี้',bw/2,by+196);
   }
   x.restore();
   x.textAlign='left'; x.textBaseline='alphabetic';
-  x.fillStyle=p.color; x.font='600 19px Kanit'; x.fillText(p.tag.toUpperCase(),46,104);
-  x.fillStyle='#fff'; x.font='700 64px Kanit'; x.fillText(p.name,42,170);
-  x.fillStyle='#CFCAF7'; x.font='400 23px Kanit'; const endY=wrap(x,p.solution,46,218,490,31);
-  let cx=46, cy=Math.max(endY+46,330); x.font='500 18px Kanit';
-  p.tech.forEach(t=>{ const tw=x.measureText(t).width+26; if(cx+tw>540){ cx=46; cy+=42; }
+  x.fillStyle=p.color; x.font='600 19px Kanit'; x.fillText(p.tag.toUpperCase(),46,326);
+  x.fillStyle='#fff'; x.font='700 50px Kanit'; x.fillText(p.name,42,384);
+  x.fillStyle='#CFCAF7'; x.font='400 23px Kanit'; const endY=wrap(x,p.solution,46,424,940,29);
+  let cx=46, cy=Math.max(endY+44,498); x.font='500 18px Kanit';
+  p.tech.forEach(t=>{ const tw=x.measureText(t).width+26; if(cx+tw>980){ cx=46; cy+=42; }
     x.strokeStyle=p.color; x.lineWidth=2; rr(x,cx,cy-24,tw,34,17); x.stroke(); x.fillStyle='#EAE7FF'; x.fillText(t,cx+13,cy-1); cx+=tw+10; });
-  x.fillStyle='#8F88D9'; x.font='400 18px Kanit'; x.fillText('กด Enter หรือแตะที่จอ เพื่อดูรายละเอียดทั้งหมด',46,540);
+  x.fillStyle='#8F88D9'; x.font='400 18px Kanit'; x.fillText('กด Enter หรือแตะที่จอ เพื่อดูรายละเอียดทั้งหมด',46,554);
   screenT.t.needsUpdate=true;
 }
 function setProj(i,animate=true){
