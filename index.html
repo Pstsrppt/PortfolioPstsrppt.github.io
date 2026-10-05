@@ -177,6 +177,7 @@ button{font:inherit;cursor:pointer}
   #label b{font-size:16px}
   #openBtn,#backBtn{font-size:13px;padding:6px 10px;min-height:40px}
 }
+.touch #keys,.touch #enter kbd{display:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -259,6 +260,10 @@ document.getElementById('hudName').textContent = SITE.name;
 /* ===================== SETUP ===================== */
 const $ = id => document.getElementById(id);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* touch-first device (phone/tablet): no keyboard, so show tap wording instead of key names */
+const TOUCH = matchMedia('(hover:none) and (pointer:coarse)').matches;
+if(TOUCH){ document.documentElement.classList.add('touch');
+  document.querySelector('#help .ctl').innerHTML = 'แตะ ← → เดิน &nbsp;/&nbsp; แตะป้าย ดูใกล้ &nbsp;/&nbsp; แตะ ถอยกลับ<br>แตะป้ายไหนก็ได้เพื่ออ่านใกล้ๆ'; }
 const V = (x,y,z) => new THREE.Vector3(x,y,z);
 const ease = t => t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
 const back = t => { const c=1.9; return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2); };
@@ -407,7 +412,7 @@ function stationWelcome(g,d){
   place(g,board(5.6,.95,[SITE.last]),0,3.85,0,{pop:d+.28});
   place(g,board(5,.8,['CS + Software Dev / ม.ศรีปทุม']),0,2.9,0,{pop:d+.34});
   place(g,board(2.9,.62,['พร้อมฝึกสหกิจ'],{ bg:'#F5C542', color:'#2A1F6B', font:'Kanit', weight:700 }),2.3,2.15,.2,{ rz:-.08, pop:d+.45 });
-  place(g,board(2.6,3,['เดิน  ← →','ดูใกล้  Enter','ถอย  Esc'],{ bg:'chalk' }),-6.4,1.7,2.2,{ rx:-.18, ry:.45, pop:d+.5 });
+  place(g,board(2.6,3,TOUCH?['เดิน  แตะ ← →','ดูใกล้  แตะป้าย','ย้อน  แตะ ถอย']:['เดิน  ← →','ดูใกล้  Enter','ถอย  Esc'],{ bg:'chalk' }),-6.4,1.7,2.2,{ rx:-.18, ry:.45, pop:d+.5 });
   place(g,board(.9,.9,[],{ arrow:1, frame:blueM }),5.4,1.3,1.8,{ ry:-.3, pop:d+.55, action:'next' });
   lantern(g,-5.2,-.6,2.8,d+.1); lantern(g,5.4,-.8,2.6,d+.15);
 }
@@ -447,7 +452,7 @@ function stationProjects(g,d){
   roleB=place(g,board(3,1.05,['']),9.3,4.4,-.15,{ ry:-.25, pop:d+.52 });
   place(g,board(1.4,.5,['ทีม'],{ bg:'#F5C542', color:'#2A1F6B', font:'Kanit', weight:700 }),9.8,3.45,-.1,{ ry:-.25, pop:d+.55 });
   withB=place(g,board(3,.8,['']),9.3,2.7,-.15,{ ry:-.25, pop:d+.58 });
-  place(g,board(2.4,2.8,['ถัดไป  →','ก่อนหน้า  ←','เปิด  Enter','ออก  Esc'],{ bg:'chalk' }),-8.6,1.6,1.6,{ rx:-.18, ry:.5, pop:d+.6 });
+  place(g,board(2.4,2.8,TOUCH?['ถัดไป  แตะ →','ก่อนหน้า  แตะ ←','เปิด  แตะจอ','ออก  แตะถอย']:['ถัดไป  →','ก่อนหน้า  ←','เปิด  Enter','ออก  Esc'],{ bg:'chalk' }),-8.6,1.6,1.6,{ rx:-.18, ry:.5, pop:d+.6 });
   lantern(g,-8.2,-1.2,3,d+.1); lantern(g,8,-1.6,3,d+.15);
 }
 function stationStory(g,d){
@@ -525,7 +530,7 @@ function drawScreen(p){
   let cx=46, cy=Math.max(endY+44,498); x.font='500 18px Kanit';
   p.tech.forEach(t=>{ const tw=x.measureText(t).width+26; if(cx+tw>980){ cx=46; cy+=42; }
     x.strokeStyle=p.color; x.lineWidth=2; rr(x,cx,cy-24,tw,34,17); x.stroke(); x.fillStyle='#EAE7FF'; x.fillText(t,cx+13,cy-1); cx+=tw+10; });
-  x.fillStyle='#8F88D9'; x.font='400 18px Kanit'; x.fillText('กด Enter หรือแตะที่จอ เพื่อดูรายละเอียดทั้งหมด',46,554);
+  x.fillStyle='#8F88D9'; x.font='400 18px Kanit'; x.fillText(TOUCH?'แตะที่จอ เพื่อดูรายละเอียดทั้งหมด':'กด Enter หรือแตะที่จอ เพื่อดูรายละเอียดทั้งหมด',46,554);
   screenT.t.needsUpdate=true;
 }
 function setProj(i,animate=true){
@@ -683,7 +688,7 @@ function updateShuttle(t){
   if(u<1) return;
   if(G.phase==='in') launch('drop',shuttle.position.clone(),V(shuttle.position.x,.06,shuttle.position.z+1.2),.35);
   else if(G.phase==='out'){ Snd.hit(.16); launch('in',shuttle.position.clone(),nearPt(),Math.max(.8,1.45-G.rally*.035)); }
-  else if(G.phase==='drop'){ Snd.thud(); toast(G.rally?`ลูกออก! แรลลี่ ${G.rally} / สูงสุด ${G.best}`:'พลาด! คลิกหรือกด Space ตอนลูกมาถึงตัว'); G.rally=0; updateHud(); launch('wait',shuttle.position.clone(),shuttle.position.clone(),1.4); }
+  else if(G.phase==='drop'){ Snd.thud(); toast(G.rally?`ลูกออก! แรลลี่ ${G.rally} / สูงสุด ${G.best}`:(TOUCH?'พลาด! แตะตอนลูกมาถึงตัว':'พลาด! คลิกหรือกด Space ตอนลูกมาถึงตัว')); G.rally=0; updateHud(); launch('wait',shuttle.position.clone(),shuttle.position.clone(),1.4); }
   else if(G.phase==='wait') launch('in',farPt(),nearPt(),1.5);
 }
 
@@ -698,10 +703,10 @@ function flyTo(pos,target,dur,arc=0){ tw={ p0:camBase.clone(), p1:pos, l0:look.c
 function go(i){ if(i<0||i>=STOPS.length) return; const was=cur; if(focus&&cur===3) stopGame(); cur=i; focus=false; peek=false; $('onboard').classList.remove('on');
   const [p,l]=camFor(i); flyTo(p,l,1.5,i!==was?1.2:0); moveChar(charSpot(i),1.5); faceTarget=i===3?Math.PI:0; if(i!==was) Snd.whoosh(); updateHud();
   if(i===2) setTimeout(()=>setProj(pi),900);
-  if(i===3) setTimeout(()=>{ if(cur===3&&!focus) toast('กด Enter หรือแตะ "เล่นแบดมินตัน" เพื่อตีโต้กับผม'); },1600); }
+  if(i===3) setTimeout(()=>{ if(cur===3&&!focus) toast(TOUCH?'แตะ "เล่นแบดมินตัน" เพื่อตีโต้กับผม':'กด Enter หรือแตะ "เล่นแบดมินตัน" เพื่อตีโต้กับผม'); },1600); }
 function enterFocus(){ if(cur!==2&&cur!==3) return; focus=true; peek=false; const [p,l]=focusCam(); flyTo(p,l,1); updateHud();
-  if(cur===2) toast('← → เปลี่ยนโปรเจกต์ / Enter เปิด / Esc ถอยกลับ');
-  else { toast('คลิกหรือกด Space ตอนลูกมาถึงตัว'); setTimeout(()=>{ if(focus&&cur===3) startGame(); },1100); } }
+  if(cur===2) toast(TOUCH?'แตะ ← → เปลี่ยนโปรเจกต์ / แตะจอ เปิด':'← → เปลี่ยนโปรเจกต์ / Enter เปิด / Esc ถอยกลับ');
+  else { toast(TOUCH?'แตะตอนลูกมาถึงตัว':'คลิกหรือกด Space ตอนลูกมาถึงตัว'); setTimeout(()=>{ if(focus&&cur===3) startGame(); },1100); } }
 function exitFocus(){ if(cur===3) stopGame(); focus=false; const [p,l]=camFor(cur); flyTo(p,l,1); updateHud(); }
 function act(a,o){ Snd.click(); if(a==='look'){ peekAt(o); return; } if(a==='about'){ openAbout(); return; }
   if(a==='next') go(cur+1); else if(a==='prev') go(cur-1);
@@ -718,7 +723,7 @@ function updateHud(){
   let name=STOPS[cur]; if(focus&&cur===2) name=PROJECTS[pi].name+' — ดูใกล้'; if(focus&&cur===3) name=`แรลลี่ ${G.rally} / สูงสุด ${G.best}`;
   $('stName').textContent=name; [...dotsEl.children].forEach((b,i)=>b.classList.toggle('on',i===cur));
   const ob=$('openBtn'); ob.classList.toggle('show',cur===2||cur===3);
-  ob.textContent = cur===2 ? (focus?'เปิดรายละเอียด':'ดูใกล้ๆ') : (focus?'ตี (Space)':'เล่นแบดมินตัน');
+  ob.textContent = cur===2 ? (focus?'เปิดรายละเอียด':'ดูใกล้ๆ') : (focus?(TOUCH?'ตี':'ตี (Space)'):'เล่นแบดมินตัน');
   $('backBtn').classList.toggle('show',focus||peek); }
 let toastTimer; function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2600); }
 $('prevBtn').onclick=()=>{ Snd.click(); (focus&&cur===2)?setProj(pi-1):go(cur-1); };
@@ -730,7 +735,7 @@ $('sndBtn').onclick=()=>{ Snd.init(); Snd.on=!Snd.on; if(Snd.out) Snd.out.gain.v
 function openModal(){ const p=PROJECTS[pi]; modalOpen=true;
   $('sheet').innerHTML=`<span class="tag">${p.tag}</span><h2 id="mTitle">${p.name}</h2>
   <dl><dt>ปัญหา</dt><dd>${p.problem}</dd><dt>ทางแก้</dt><dd>${p.solution}</dd><dt>บทบาทผม</dt><dd>${p.role}</dd><dt>ทีม</dt><dd>${p.team}</dd><dt>เทคโนโลยี</dt><dd>${p.tech.join(', ')}</dd></dl>
-  <div class="row">${p.links.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join('')}<button class="ghost" id="mClose">ปิด (Esc)</button></div>`;
+  <div class="row">${p.links.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join('')}<button class="ghost" id="mClose">${TOUCH?'ปิด':'ปิด (Esc)'}</button></div>`;
   $('modal').classList.add('open'); $('mClose').onclick=closeModal; $('mClose').focus(); }
 function closeModal(){ modalOpen=false; $('modal').classList.remove('open'); }
 $('modal').addEventListener('click',e=>{ if(e.target.id==='modal') closeModal(); });
@@ -742,7 +747,7 @@ const openQuick=()=>{ location.href='resume.html'; };
 let peek=false;
 function peekAt(o){ const p=new THREE.Vector3(), q=new THREE.Quaternion(); o.getWorldPosition(p); o.getWorldQuaternion(q);
   const a=Math.min(innerWidth/innerHeight,1.8), w=o.userData.w||3, h=o.userData.h||1, d=Math.max(2.2,1.4*w/a,1.45*h);
-  flyTo(p.clone().add(V(0,0,1).applyQuaternion(q).multiplyScalar(d)),p,.9); peek=true; toast('กด Esc หรือคลิกเพื่อถอยกลับ'); updateHud(); }
+  flyTo(p.clone().add(V(0,0,1).applyQuaternion(q).multiplyScalar(d)),p,.9); peek=true; toast(TOUCH?'แตะเพื่อถอยกลับ':'กด Esc หรือคลิกเพื่อถอยกลับ'); updateHud(); }
 function unpeek(){ peek=false; const [p,l]=focus?focusCam():camFor(cur); flyTo(p,l,.9); updateHud(); }
 
 function copyEmail(){ const ok=()=>toast('คัดลอกอีเมลแล้ว: '+EMAIL_ADDR);
