@@ -23,6 +23,9 @@
     if(navigator.clipboard) navigator.clipboard.writeText(S.email).then(()=>toast('คัดลอกอีเมลแล้ว: '+S.email),()=>location.href='mailto:'+S.email);
     else location.href='mailto:'+S.email; }));
   all('[data-print]').forEach(b=>b.addEventListener('click',()=>{
+    /* Phone/tablet print engines re-flow the A4 sheet and split it over two pages,
+       so hand over the ready-made one-page PDF instead of calling print(). */
+    if(S.cv && matchMedia('(hover:none) and (pointer:coarse)').matches){ location.href=S.cv; return; }
     const prevTitle=document.title;
     document.title=(S.nameEn||'Resume').replace(/\s+/g,'_')+'_Resume';
     const restore=()=>{ document.title=prevTitle; window.removeEventListener('afterprint',restore); };

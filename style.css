@@ -1,6 +1,6 @@
 :root{--night:#150F3F;--deep:#0E0A33;--wood:#5F55C9;--wood2:#3A308F;--blue:#4A45FF;--amber:#FFB547;--tag:#F5C542;--ink:#2A1F6B;--text:#EAE7FF;--soft:rgba(234,231,255,.74);--paper:#F7F5FF;--muted:#5C5496;--line:rgba(42,31,107,.12);--chip:#EEEBFF;--live:#3FE0C5}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:Kanit,sans-serif;font-weight:300;color:var(--ink);background:var(--paper);line-height:1.7;overflow-wrap:break-word;word-break:break-word;overflow-x:hidden}
 a{color:inherit}
 button{font:inherit;cursor:pointer}
