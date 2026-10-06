@@ -625,117 +625,136 @@ function charSpot(i){ return i===3 ? V(3*GAP+1,0,-3.2) : V(i*GAP+3.4,0,4.2); }
 function buildChar(){
   const c=new THREE.Group();
 
-  // Personalised low-poly avatar. Keep these four limb pivots intact because
-  // updateHero() and the badminton mini-game animate them directly.
+  // Stylised avatar based on the latest visual reference:
+  // soft animated-movie proportions, slim uniform, full middle-part hair.
+  // Keep the four limb pivots unchanged for walking + badminton animation.
   const skin=M(0xC98D68);
-  const skinHi=M(0xD9A27C);
+  const skinLight=M(0xD7A17C);
   const shirt=M(0xFAFAF8);
-  const shirtShade=M(0xDDE1E8);
-  const tie=M(0x26365F,0x10182F,.12);
-  const tiePink=M(0xF45B9B);
-  const pants=M(0x151821);
-  const silver=M(0xBFC5CE,0x333844,.14);
-  const silverDark=M(0x737A86,0x151820,.08);
-  const sole=M(0xF0F1F3);
-  const hair=M(0x16141B);
-  const hairHi=M(0x28232F);
-  const ink=M(0x231B29);
+  const shirtShade=M(0xE2E5EB);
+  const tie=M(0x25365F,0x10182F,.10);
+  const pants=M(0x15171E);
+  const silver=M(0xC7CBD2,0x22262F,.12);
+  const silverDark=M(0x777E89,0x11141A,.08);
+  const sole=M(0xF2F3F5);
+  const hair=M(0x15131A);
+  const hairHi=M(0x27232E);
+  const eyeDark=M(0x17131D);
+  const eyeWhite=M(0xF7F6F3);
+  const blush=M(0xBC735F);
+  const tiePink=M(0xF15A9A);
 
-  const ell=(rx,ry,rz,m,x,y,z,parent,seg=10)=>{
-    const o=new THREE.Mesh(new THREE.SphereGeometry(1,seg,Math.max(6,seg-2)),m);
+  const ell=(rx,ry,rz,m,x,y,z,parent,seg=12)=>{
+    const o=new THREE.Mesh(new THREE.SphereGeometry(1,seg,Math.max(8,seg-2)),m);
     o.scale.set(rx,ry,rz); o.position.set(x,y,z); parent.add(o); return o;
   };
-  const cyl=(rt,rb,h,m,x,y,z,parent,seg=8)=>{
+  const cyl=(rt,rb,h,m,x,y,z,parent,seg=10)=>{
     const o=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,seg),m);
     o.position.set(x,y,z); parent.add(o); return o;
   };
-  const pivotLimb=(x,y,w,h,m)=>{
+  const limb=(x,y,w,h,m)=>{
     const g=new THREE.Group(); g.position.set(x,y,0); c.add(g);
-    const body=cyl(w*.46,w*.52,h,m,0,-h*.5,0,g,8);
+    const upper=cyl(w*.44,w*.52,h,m,0,-h*.5,0,g,10);
     return g;
   };
 
-  // Torso: tapered shirt + shoulder volume, less boxy than the old version.
-  cyl(.255,.305,.58,shirt,0,1.08,0,c,8);
-  const chest=ell(.32,.12,.20,shirt,0,1.35,0,c,8);
-  chest.rotation.x=.03;
-  box(.50,.045,.035,shirtShade,0,1.03,.185,c); // shirt seam / belt line hint
+  // ---- body silhouette: slimmer and taller like the reference ----
+  cyl(.235,.285,.58,shirt,0,1.08,0,c,10);
+  ell(.31,.105,.19,shirt,0,1.36,0,c,10);
+  // subtle waist line so the shirt reads tucked-in
+  box(.50,.040,.035,shirtShade,0,1.00,.175,c);
 
-  // Collar and tie.
-  const collarL=box(.17,.11,.035,shirtShade,-.095,1.37,.188,c); collarL.rotation.z=-.52;
-  const collarR=box(.17,.11,.035,shirtShade,.095,1.37,.188,c); collarR.rotation.z=.52;
-  const knot=new THREE.Mesh(new THREE.OctahedronGeometry(.082,0),tie);
-  knot.scale.set(1,.72,.43); knot.position.set(0,1.31,.207); c.add(knot);
-  const tieBody=new THREE.Mesh(new THREE.CylinderGeometry(.053,.078,.32,4),tie);
-  tieBody.position.set(0,1.12,.207); tieBody.rotation.y=Math.PI/4; c.add(tieBody);
-  // tiny pink university accent, readable as a logo mark from normal camera distance
-  box(.055,.018,.008,tiePink,0,1.02,.226,c);
+  // Collar
+  const colL=box(.155,.095,.030,shirtShade,-.090,1.39,.180,c); colL.rotation.z=-.55;
+  const colR=box(.155,.095,.030,shirtShade,.090,1.39,.180,c); colR.rotation.z=.55;
 
-  // Neck + head: slightly narrower jaw and more natural proportions.
-  cyl(.075,.082,.10,skin,0,1.46,0,c,8);
-  const head=new THREE.Group(); head.position.set(0,1.72,0); c.add(head);
-  ell(.235,.275,.225,skin,0,.005,0,head,12);
-  ell(.185,.105,.205,skin,-.001,-.115,.012,head,10); // softer jaw/chin
-  ell(.043,.067,.032,skinHi,-.235,.005,0,head,8);
-  ell(.043,.067,.032,skinHi,.235,.005,0,head,8);
+  // Tie
+  const knot=new THREE.Mesh(new THREE.OctahedronGeometry(.075,0),tie);
+  knot.scale.set(1,.72,.42); knot.position.set(0,1.31,.202); c.add(knot);
+  const tieBody=new THREE.Mesh(new THREE.CylinderGeometry(.045,.070,.36,4),tie);
+  tieBody.position.set(0,1.10,.202); tieBody.rotation.y=Math.PI/4; c.add(tieBody);
+  box(.050,.017,.007,tiePink,0,.995,.220,c);
 
-  // Full middle-part layered hairstyle. Multiple clumps avoid the old "bald gap".
-  ell(.260,.130,.235,hair,0,.188,-.010,head,10);
-  ell(.225,.120,.105,hair,0,.095,-.205,head,9);
-  ell(.082,.185,.110,hair,-.215,.075,-.055,head,8);
-  ell(.082,.185,.110,hair,.215,.075,-.055,head,8);
-  const fringe=(x,y,z,rx,ry,rz,rot)=>{
-    const p=ell(rx,ry,rz,hairHi,x,y,z,head,8); p.rotation.z=rot; p.rotation.x=-.10; return p;
+  // Neck
+  cyl(.068,.075,.10,skin,0,1.49,0,c,10);
+
+  // ---- face: larger eyes and softer animated proportions ----
+  const head=new THREE.Group(); head.position.set(0,1.73,0); c.add(head);
+  ell(.225,.265,.215,skin,0,.005,0,head,14);
+  ell(.170,.105,.195,skin,0,-.125,.010,head,12); // soft jaw/chin
+  ell(.040,.065,.030,skinLight,-.226,.000,-.005,head,10);
+  ell(.040,.065,.030,skinLight,.226,.000,-.005,head,10);
+
+  // Eyes: white sclera + dark iris, intentionally a little larger like the ref.
+  ell(.047,.040,.012,eyeWhite,-.082,.020,.219,head,10);
+  ell(.047,.040,.012,eyeWhite,.082,.020,.219,head,10);
+  ell(.025,.030,.014,eyeDark,-.082,.017,.229,head,10);
+  ell(.025,.030,.014,eyeDark,.082,.017,.229,head,10);
+  ell(.007,.010,.005,M(0xffffff),-.075,.024,.238,head,8);
+  ell(.007,.010,.005,M(0xffffff),.089,.024,.238,head,8);
+
+  // brows
+  const bL=box(.078,.012,.010,eyeDark,-.083,.078,.215,head); bL.rotation.z=-.10;
+  const bR=box(.078,.012,.010,eyeDark,.083,.078,.215,head); bR.rotation.z=.10;
+
+  // nose + mouth
+  ell(.014,.023,.015,skinLight,0,-.042,.226,head,8);
+  const mouthMat=M(0x7E4E47);
+  const mouth=new THREE.Mesh(new THREE.TorusGeometry(.045,.006,4,12,Math.PI),mouthMat);
+  mouth.position.set(0,-.108,.221); mouth.rotation.z=Math.PI; head.add(mouth);
+  // tiny cheek warmth
+  ell(.032,.014,.006,blush,-.125,-.062,.216,head,8);
+  ell(.032,.014,.006,blush,.125,-.062,.216,head,8);
+
+  // ---- hair: full scalp coverage + centre-part curtains ----
+  ell(.255,.130,.230,hair,0,.190,-.010,head,12);
+  ell(.230,.135,.120,hair,0,.105,-.185,head,10);
+  ell(.090,.170,.095,hair,-.205,.080,-.070,head,10);
+  ell(.090,.170,.095,hair,.205,.080,-.070,head,10);
+  ell(.075,.125,.085,hair,-.195,-.040,-.115,head,9);
+  ell(.075,.125,.085,hair,.195,-.040,-.115,head,9);
+  const bang=(x,y,z,rx,ry,rz,rzrot)=>{
+    const p=ell(rx,ry,rz,hairHi,x,y,z,head,10);
+    p.rotation.z=rzrot; p.rotation.x=-.11; return p;
   };
-  fringe(-.112,.135,.190,.105,.145,.065,-.18);
-  fringe(.108,.132,.192,.102,.142,.065,.18);
-  fringe(-.025,.165,.202,.070,.110,.060,-.03);
-  fringe(.025,.158,.200,.066,.105,.060,.03);
-  // extra back/side fill for 3/4 camera angles
-  ell(.095,.130,.090,hair,-.190,-.030,-.115,head,8);
-  ell(.095,.130,.090,hair,.190,-.030,-.115,head,8);
+  bang(-.112,.135,.188,.105,.145,.060,-.22);
+  bang(.112,.135,.188,.105,.145,.060,.22);
+  bang(-.038,.165,.202,.070,.105,.055,-.05);
+  bang(.038,.165,.202,.070,.105,.055,.05);
+  // small lower side locks like the reference
+  ell(.040,.095,.050,hair,-.210,-.080,-.040,head,8);
+  ell(.040,.095,.050,hair,.210,-.080,-.040,head,8);
 
-  // Face: eyebrows, softer eyes, nose, small smile.
-  const browL=box(.078,.014,.012,ink,-.088,.065,.222,head); browL.rotation.z=-.08;
-  const browR=box(.078,.014,.012,ink,.088,.065,.222,head); browR.rotation.z=.08;
-  ell(.027,.035,.012,ink,-.086,.010,.228,head,8);
-  ell(.027,.035,.012,ink,.086,.010,.228,head,8);
-  ell(.011,.017,.008,M(0xffffff),-.080,.015,.238,head,6);
-  ell(.011,.017,.008,M(0xffffff),.092,.015,.238,head,6);
-  ell(.018,.030,.018,skinHi,0,-.040,.232,head,7);
-  const mouth=new THREE.Mesh(new THREE.TorusGeometry(.052,.008,4,12,Math.PI),ink);
-  mouth.position.set(0,-.105,.228); mouth.rotation.z=Math.PI; head.add(mouth);
+  // ---- arms: narrower sleeves, softer hands ----
+  const armL=limb(-.335,1.35,.135,.53,shirt);
+  const armR=limb(.335,1.35,.135,.53,shirt);
+  box(.145,.045,.145,shirtShade,0,-.50,0,armL);
+  box(.145,.045,.145,shirtShade,0,-.50,0,armR);
+  ell(.064,.083,.062,skinLight,0,-.585,.010,armL,10);
+  ell(.064,.083,.062,skinLight,0,-.585,.010,armR,10);
 
-  // Arms: tapered sleeves and hands. Pivots remain at shoulders.
-  const armL=pivotLimb(-.345,1.34,.145,.52,shirt);
-  const armR=pivotLimb(.345,1.34,.145,.52,shirt);
-  box(.16,.055,.16,shirtShade,0,-.50,0,armL);
-  box(.16,.055,.16,shirtShade,0,-.50,0,armR);
-  ell(.070,.086,.070,skinHi,0,-.585,.008,armL,8);
-  ell(.070,.086,.070,skinHi,0,-.585,.008,armR,8);
+  // ---- legs: slimmer straight black slacks ----
+  const legL=limb(-.135,.80,.185,.76,pants);
+  const legR=limb(.135,.80,.185,.76,pants);
 
-  // Legs: tapered black slacks. Pivots remain at hips.
-  const legL=pivotLimb(-.142,.80,.205,.74,pants);
-  const legR=pivotLimb(.142,.80,.205,.74,pants);
-
-  // Silver retro runners inspired by the user's NB 530 reference.
+  // ---- silver retro runners ----
   const addShoe=(leg)=>{
-    box(.235,.105,.335,silver,0,-.70,.070,leg);
-    ell(.118,.058,.145,silver,0,-.700,.155,leg,8);
-    box(.250,.050,.360,sole,0,-.775,.078,leg);
-    box(.070,.060,.025,silverDark,-.070,-.700,.238,leg);
-    box(.070,.060,.025,silverDark,.070,-.700,.238,leg);
-    const stripe1=box(.030,.060,.020,ink,-.045,-.700,.255,leg); stripe1.rotation.z=-.45;
-    const stripe2=box(.030,.060,.020,ink,.020,-.700,.255,leg); stripe2.rotation.z=.45;
+    box(.220,.095,.325,silver,0,-.720,.070,leg);
+    ell(.108,.055,.145,silver,0,-.720,.150,leg,10);
+    box(.235,.045,.355,sole,0,-.785,.078,leg);
+    box(.052,.055,.022,silverDark,-.065,-.715,.240,leg);
+    box(.052,.055,.022,silverDark,.065,-.715,.240,leg);
+    const n1=box(.028,.055,.018,eyeDark,-.038,-.712,.256,leg); n1.rotation.z=-.48;
+    const n2=box(.028,.055,.018,eyeDark,.018,-.712,.256,leg); n2.rotation.z=.48;
   };
   addShoe(legL); addShoe(legR);
 
-  // Racket stays attached to the animated right arm.
-  const rk=new THREE.Group(); rk.position.set(0,-.57,.01); armR.add(rk);
-  const grip=new THREE.Mesh(new THREE.CylinderGeometry(.030,.030,.16,6),M(0x20202A)); grip.position.y=-.07; rk.add(grip);
-  const shaft=new THREE.Mesh(new THREE.CylinderGeometry(.014,.014,.38,6),M(0xD6D8DF)); shaft.position.y=-.31; rk.add(shaft);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(.185,.024,6,16),M(0x4A45FF,0x2622C8,.6));
-  ring.position.y=-.59; ring.rotation.y=Math.PI/2; rk.add(ring);
+  // ---- badminton racket ----
+  const rk=new THREE.Group(); rk.position.set(0,-.565,.012); armR.add(rk);
+  const grip=new THREE.Mesh(new THREE.CylinderGeometry(.027,.027,.15,7),M(0x20202A)); grip.position.y=-.07; rk.add(grip);
+  const shaft=new THREE.Mesh(new THREE.CylinderGeometry(.012,.012,.34,7),M(0xDADCE2)); shaft.position.y=-.31; rk.add(shaft);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(.175,.022,7,18),M(0x4A45FF,0x2622C8,.55));
+  ring.position.y=-.57; ring.rotation.y=Math.PI/2; rk.add(ring);
 
   hero={ c, legL, legR, armL, armR, landed:false };
   c.position.copy(charSpot(0)); c.visible=false; scene.add(c);
