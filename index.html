@@ -625,115 +625,85 @@ function charSpot(i){ return i===3 ? V(3*GAP+1,0,-3.2) : V(i*GAP+3.4,0,4.2); }
 function buildChar(){
   const c=new THREE.Group();
 
-  // Character stays primitive-built to match CLAUDE.md art direction.
-  // Optional personal face decal: drop a transparent 512x512 PNG at
-  // images/character-face.png — the character still works if the file is absent.
-  const skin=M(0xC98F6A);
-  const skinHi=M(0xD8A17B);
-  const shirt=M(0xF6F7FA);
-  const shirtShade=M(0xD9DCE3);
-  const tie=M(0x26345A,0x10182F,.12);
-  const pants=M(0x151820);
-  const silver=M(0xBFC5CE,0x1A1D24,.06);
-  const sole=M(0xECEEF1);
-  const hair=M(0x17151D);
-  const hairHi=M(0x25212D);
-  const ink=M(0x241B2C);
+  // --- Pongsathorn avatar palette ---
+  const skin=M(0xE8B28D);
+  const skinSoft=M(0xF0C09E);
+  const shirt=M(0xF7F7F4);
+  const shirtShadow=M(0xDADDE5);
+  const tie=M(0x26365F);
+  const pants=M(0x171922);
+  const shoe=M(0xC7CBD2,0x1E2230,.08);
+  const sole=M(0xF1F2F4);
+  const hair=M(0x17151C);
+  const faceM=M(0x241B2C);
 
-  const ell=(rx,ry,rz,m,x,y,z,parent,detail=1)=>{
-    const o=new THREE.Mesh(new THREE.IcosahedronGeometry(1,detail),m);
+  // Helpers for slightly softer low-poly shapes.
+  const ell=(rx,ry,rz,m,x,y,z,parent,seg=10)=>{
+    const o=new THREE.Mesh(new THREE.SphereGeometry(1,seg,Math.max(6,seg-2)),m);
     o.scale.set(rx,ry,rz); o.position.set(x,y,z); parent.add(o); return o;
   };
-  const limb=(x,y,w,h,m)=>{
-    const g=new THREE.Group(); g.position.set(x,y,0); c.add(g);
-    const upper=new THREE.Mesh(new THREE.CapsuleGeometry ? new THREE.CapsuleGeometry(w*.5,Math.max(.02,h-w),4,8) : new THREE.CylinderGeometry(w*.48,w*.52,h,8),m);
-    if(THREE.CapsuleGeometry){ upper.position.y=-h*.5; }
-    else { upper.position.y=-h*.5; }
-    g.add(upper); return g;
+  const part=(w,h,d,m,x,y,z,parent)=>{
+    const g=new THREE.Group(); g.position.set(x,y,z); parent.add(g);
+    box(w,h,d,m,0,-h/2,0,g); return g;
   };
 
-  // Torso: tapered shirt using simple primitives, still light enough for mobile.
-  const torso=new THREE.Mesh(new THREE.CylinderGeometry(.27,.32,.62,8),shirt);
-  torso.position.set(0,1.08,0); c.add(torso);
-  const shoulders=new THREE.Mesh(new THREE.SphereGeometry(.34,8,6),shirt);
-  shoulders.scale.set(1.05,.28,.62); shoulders.position.set(0,1.36,0); c.add(shoulders);
+  // Torso — white university-style shirt with shoulders, collar and navy tie.
+  box(.58,.60,.34,shirt,0,1.08,0,c);
+  box(.64,.12,.36,shirt,0,1.37,0,c);
+  const collarL=box(.18,.12,.04,shirtShadow,-.10,1.36,.19,c); collarL.rotation.z=-.45;
+  const collarR=box(.18,.12,.04,shirtShadow,.10,1.36,.19,c); collarR.rotation.z=.45;
+  const tieTop=box(.12,.10,.035,tie,0,1.31,.205,c); tieTop.rotation.z=Math.PI/4;
+  const tieBody=box(.105,.34,.035,tie,0,1.12,.205,c);
+  tieBody.rotation.z=.01;
 
-  // Collar and tie.
-  const collarL=box(.19,.11,.035,shirtShade,-.10,1.37,.19,c); collarL.rotation.z=-.48;
-  const collarR=box(.19,.11,.035,shirtShade,.10,1.37,.19,c); collarR.rotation.z=.48;
-  const knot=new THREE.Mesh(new THREE.OctahedronGeometry(.085,0),tie); knot.scale.set(1,.78,.42); knot.position.set(0,1.31,.205); c.add(knot);
-  const tieBody=new THREE.Mesh(new THREE.CylinderGeometry(.055,.085,.34,4),tie);
-  tieBody.position.set(0,1.12,.205); tieBody.rotation.y=Math.PI/4; c.add(tieBody);
+  // Head — softer low-poly proportions based on the reference portrait.
+  ell(.255,.29,.24,skin,0,1.69,.01,c,12);
+  // subtle ears
+  ell(.045,.07,.035,skinSoft,-.255,1.69,0,c,8);
+  ell(.045,.07,.035,skinSoft,.255,1.69,0,c,8);
 
-  // Rounded stylized head with full volume.
-  const head=new THREE.Group(); head.position.set(0,1.70,0); c.add(head);
-  ell(.245,.285,.235,skin,0,0,0,head,2);
-  ell(.048,.070,.035,skinHi,-.248,0,0,head,1);
-  ell(.048,.070,.035,skinHi,.248,0,0,head,1);
+  // Middle-parted layered black hair.
+  ell(.275,.12,.245,hair,0,1.895,-.005,c,10);
+  const fringeL=box(.19,.18,.07,hair,-.105,1.84,.205,c);
+  fringeL.rotation.z=-.16; fringeL.rotation.x=-.07;
+  const fringeR=box(.19,.18,.07,hair,.105,1.84,.205,c);
+  fringeR.rotation.z=.16; fringeR.rotation.x=-.07;
+  const sideL=box(.075,.28,.13,hair,-.235,1.78,-.015,c); sideL.rotation.z=.08;
+  const sideR=box(.075,.28,.13,hair,.235,1.78,-.015,c); sideR.rotation.z=-.08;
+  const backHair=box(.38,.20,.09,hair,0,1.76,-.22,c);
 
-  // Full middle-part hairstyle: crown + back + side layers + front strands.
-  ell(.285,.155,.255,hair,0,.185,-.015,head,1);
-  ell(.255,.190,.105,hair,0,.055,-.215,head,1);
-  ell(.090,.205,.120,hair,-.225,.070,-.050,head,1);
-  ell(.090,.205,.120,hair,.225,.070,-.050,head,1);
-  const fringe=(x,y,z,sx,sy,rot)=>{
-    const p=ell(sx,sy,.065,hairHi,x,y,z,head,1); p.rotation.z=rot; p.rotation.x=-.10; return p;
-  };
-  fringe(-.115,.135,.198,.115,.145,-.18);
-  fringe(.105,.132,.198,.110,.140,.18);
-  fringe(-.028,.160,.215,.080,.115,-.04);
-  // sideburn/back fill prevents the crown from looking chopped from camera angles
-  ell(.080,.125,.080,hair,-.215,-.055,-.090,head,1);
-  ell(.080,.125,.080,hair,.215,-.055,-.090,head,1);
+  // Brows, eyes and small relaxed smile.
+  box(.085,.018,.018,faceM,-.095,1.755,.232,c);
+  box(.085,.018,.018,faceM,.095,1.755,.232,c);
+  ell(.032,.042,.014,faceM,-.092,1.695,.236,c,8);
+  ell(.032,.042,.014,faceM,.092,1.695,.236,c,8);
+  box(.115,.020,.018,faceM,0,1.585,.238,c);
 
-  // Code-built face is the fallback when no image has been added yet.
-  box(.080,.015,.014,ink,-.092,.065,.229,head);
-  box(.080,.015,.014,ink,.092,.065,.229,head);
-  ell(.028,.038,.012,ink,-.090,.005,.234,head,1);
-  ell(.028,.038,.012,ink,.090,.005,.234,head,1);
-  const nose=ell(.018,.030,.020,skinHi,0,-.035,.240,head,1);
-  const smile=new THREE.Mesh(new THREE.TorusGeometry(.055,.009,4,12,Math.PI),ink);
-  smile.position.set(0,-.105,.238); smile.rotation.z=Math.PI; head.add(smile);
+  // Arms: white sleeves with visible hands. Keep pivots for the existing walk/badminton animation.
+  const armL=part(.15,.56,.15,shirt,-.365,1.34,0,c);
+  const armR=part(.15,.56,.15,shirt,.365,1.34,0,c);
+  ell(.075,.085,.075,skinSoft,0,-.57,0,armL,8);
+  ell(.075,.085,.075,skinSoft,0,-.57,0,armR,8);
 
-  // Optional face image. Use a transparent face-only PNG so it blends into the 3D head.
-  const texLoader=new THREE.TextureLoader();
-  texLoader.load('images/character-face.png',tex=>{
-    tex.encoding=THREE.sRGBEncoding;
-    tex.minFilter=THREE.LinearFilter;
-    tex.magFilter=THREE.LinearFilter;
-    const mat=new THREE.MeshBasicMaterial({map:tex,transparent:true,alphaTest:.06,depthWrite:false,fog:false,side:THREE.DoubleSide});
-    const decal=new THREE.Mesh(new THREE.PlaneGeometry(.39,.46),mat);
-    decal.position.set(0,-.015,.242);
-    head.add(decal);
-  },undefined,()=>{});
+  // Black slacks. Keep leg pivots compatible with existing animation.
+  const legL=part(-0+ .21,.76,.22,pants,-.145,.80,0,c);
+  const legR=part(.21,.76,.22,pants,.145,.80,0,c);
 
-  // Arms and hands remain separate pivots so the existing walk/badminton animation keeps working.
-  const armL=limb(-.355,1.34,.15,.55,shirt);
-  const armR=limb(.355,1.34,.15,.55,shirt);
-  ell(.075,.090,.075,skinHi,0,-.57,0,armL,1);
-  ell(.075,.090,.075,skinHi,0,-.57,0,armR,1);
-
-  // Tailored black slacks with a slightly fuller silhouette.
-  const legL=limb(-.145,.80,.205,.75,pants);
-  const legR=limb(.145,.80,.205,.75,pants);
-
-  // Silver retro running shoes, built from primitives.
+  // Silver retro running sneakers inspired by NB 530.
   const addShoe=(leg)=>{
-    const body=new THREE.Mesh(new THREE.BoxGeometry(.255,.12,.36),silver);
-    body.position.set(0,-.72,.070); leg.add(body);
-    const toe=ell(.125,.070,.160,silver,0,-.72,.145,leg,1);
-    const s=new THREE.Mesh(new THREE.BoxGeometry(.270,.052,.39),sole);
-    s.position.set(0,-.79,.078); leg.add(s);
-    const stripe1=box(.035,.055,.018,ink,-.052,-.715,.258,leg); stripe1.rotation.z=-.48;
-    const stripe2=box(.035,.055,.018,ink,.018,-.715,.258,leg); stripe2.rotation.z=.48;
-    box(.18,.024,.018,shirtShade,0,-.755,.267,leg);
+    box(.245,.12,.36,shoe,0,-.72,.065,leg);
+    box(.255,.055,.38,sole,0,-.79,.075,leg);
+    // layered silver side panels / dark accent
+    const stripe1=box(.035,.055,.018,faceM,-.055,-.715,.255,leg); stripe1.rotation.z=-.45;
+    const stripe2=box(.035,.055,.018,faceM,.015,-.715,.255,leg); stripe2.rotation.z=.45;
+    box(.19,.028,.02,shirtShadow,0,-.755,.265,leg);
   };
   addShoe(legL); addShoe(legR);
 
-  // Racket stays primitive-built and attached to the animated right arm.
+  // Badminton racket stays attached to the right arm so the mini-game still works.
   const rk=new THREE.Group(); rk.position.y=-.56; armR.add(rk);
-  const hd=new THREE.Mesh(new THREE.CylinderGeometry(.025,.025,.42,5),M(0x1B1433)); hd.position.y=-.20; rk.add(hd);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(.20,.03,5,12),M(0x4A45FF,0x2622C8,.6)); ring.position.y=-.60; ring.rotation.y=Math.PI/2; rk.add(ring);
+  const hd=new THREE.Mesh(new THREE.CylinderGeometry(.025,.025,.42,5),M(0x1B1433)); hd.position.y=-.2; rk.add(hd);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(.2,.03,5,12),M(0x4A45FF,0x2622C8,.6)); ring.position.y=-.6; ring.rotation.y=Math.PI/2; rk.add(ring);
 
   hero={ c, legL, legR, armL, armR, landed:false };
   c.position.copy(charSpot(0)); c.visible=false; scene.add(c);
