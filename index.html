@@ -239,7 +239,6 @@ button{font:inherit;cursor:pointer}
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="data.js"></script>
 <script>
 /* ===================== CONTENT (edit here) ===================== */
@@ -623,7 +622,7 @@ function buildProps(){
 /* ===================== CHARACTER ===================== */
 let hero=null, charTw=null, faceTarget=0, swingT=-9, landT=Infinity, stepAcc=0;
 function charSpot(i){ return i===3 ? V(3*GAP+1,0,-3.2) : V(i*GAP+3.4,0,4.2); }
-function buildPrimitiveChar(){
+function buildChar(){
   const c=new THREE.Group();
 
   // --- Pongsathorn avatar palette ---
@@ -706,84 +705,8 @@ function buildPrimitiveChar(){
   const hd=new THREE.Mesh(new THREE.CylinderGeometry(.025,.025,.42,5),M(0x1B1433)); hd.position.y=-.2; rk.add(hd);
   const ring=new THREE.Mesh(new THREE.TorusGeometry(.2,.03,5,12),M(0x4A45FF,0x2622C8,.6)); ring.position.y=-.6; ring.rotation.y=Math.PI/2; rk.add(ring);
 
-  hero={ c, legL, legR, armL, armR, landed:false, source:'primitive' };
+  hero={ c, legL, legR, armL, armR, landed:false };
   c.position.copy(charSpot(0)); c.visible=false; scene.add(c);
-  return hero;
-}
-
-function makeRacketPivot(parent){
-  const rk=new THREE.Group(); rk.position.y=-.56; parent.add(rk);
-  const hd=new THREE.Mesh(new THREE.CylinderGeometry(.025,.025,.42,5),M(0x1B1433)); hd.position.y=-.2; rk.add(hd);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(.2,.03,5,12),M(0x4A45FF,0x2622C8,.6)); ring.position.y=-.6; ring.rotation.y=Math.PI/2; rk.add(ring);
-}
-
-function buildGlbHero(model,oldHero){
-  const rawBox=new THREE.Box3().setFromObject(model);
-  const rawSize=new THREE.Vector3(); rawBox.getSize(rawSize);
-  const s=rawSize.y>0?2/rawSize.y:1;
-  model.scale.setScalar(s);
-  model.updateMatrixWorld(true);
-
-  const fittedBox=new THREE.Box3().setFromObject(model);
-  const center=new THREE.Vector3(); fittedBox.getCenter(center);
-  model.position.x-=center.x;
-  model.position.z-=center.z;
-  model.position.y-=fittedBox.min.y;
-  model.rotation.y=Math.PI;
-
-  model.traverse(o=>{
-    if(!o.isMesh) return;
-    o.castShadow=false; o.receiveShadow=false;
-    const mats=Array.isArray(o.material)?o.material:[o.material];
-    mats.filter(Boolean).forEach(m=>{
-      if(m.map){ m.map.encoding=THREE.sRGBEncoding; m.map.needsUpdate=true; }
-      m.needsUpdate=true;
-    });
-  });
-
-  const c=new THREE.Group();
-  c.add(model);
-
-  // Current supplied model has no skeleton. These empty pivots keep the
-  // existing movement and badminton code safe while the whole model walks.
-  const legL=new THREE.Group(),legR=new THREE.Group(),armL=new THREE.Group(),armR=new THREE.Group();
-  legL.position.set(-.15,.78,0); legR.position.set(.15,.78,0);
-  armL.position.set(-.34,1.34,0); armR.position.set(.34,1.34,0);
-  c.add(legL,legR,armL,armR);
-  makeRacketPivot(armR);
-
-  if(oldHero&&oldHero.c){
-    c.position.copy(oldHero.c.position);
-    c.rotation.copy(oldHero.c.rotation);
-    c.scale.copy(oldHero.c.scale);
-    c.visible=oldHero.c.visible;
-    scene.remove(oldHero.c);
-  }else{
-    c.position.copy(charSpot(0));
-    c.visible=false;
-  }
-
-  scene.add(c);
-  hero={c,legL,legR,armL,armR,landed:oldHero?oldHero.landed:false,source:'glb'};
-}
-
-function buildChar(){
-  // Do not block the intro on the network: render the primitive fallback first.
-  const fallback=buildPrimitiveChar();
-
-  if(!THREE.GLTFLoader){
-    console.warn('GLTFLoader unavailable; using primitive character fallback.');
-    return;
-  }
-
-  new THREE.GLTFLoader().load(
-    'models/pongsathorn.glb',
-    gltf=>{
-      if(gltf&&gltf.scene) buildGlbHero(gltf.scene,hero||fallback);
-    },
-    undefined,
-    err=>console.warn('pongsathorn.glb failed to load; keeping primitive character.',err)
-  );
 }
 function moveChar(to,dur){ if(!hero) return; charTw={ from:hero.c.position.clone(), to, t0:clock.getElapsedTime(), dur:reduce?.001:dur }; }
 function turnTo(a,k){ const c=hero.c; let d=a-c.rotation.y; d=Math.atan2(Math.sin(d),Math.cos(d)); c.rotation.y+=d*Math.min(k,1); }
