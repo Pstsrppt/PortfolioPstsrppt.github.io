@@ -658,22 +658,29 @@ function buildChar(){
     return g;
   };
 
-  // ---- body silhouette: slimmer and taller like the reference ----
-  cyl(.235,.285,.58,shirt,0,1.08,0,c,10);
-  ell(.31,.105,.19,shirt,0,1.36,0,c,10);
-  // subtle waist line so the shirt reads tucked-in
-  box(.50,.040,.035,shirtShade,0,1.00,.175,c);
+  // ---- body silhouette: natural tucked-in shirt instead of a barrel ----
+  // Build the shirt from three overlapping volumes: upper chest, ribcage, waist.
+  // This gives shoulders -> torso -> waist taper while staying cheap on mobile.
+  cyl(.215,.245,.24,shirt,0,1.25,0,c,10);  // upper chest
+  cyl(.235,.225,.22,shirt,0,1.08,0,c,10);  // ribcage
+  cyl(.215,.190,.18,shirt,0,.91,0,c,10);   // tucked waist
+  ell(.292,.085,.175,shirt,0,1.39,0,c,10); // rounded shoulders
 
-  // Collar
-  const colL=box(.155,.095,.030,shirtShade,-.090,1.39,.180,c); colL.rotation.z=-.55;
-  const colR=box(.155,.095,.030,shirtShade,.090,1.39,.180,c); colR.rotation.z=.55;
+  // tiny front placket + tucked seam so the shirt reads as clothing, not a solid tube
+  box(.020,.44,.018,shirtShade,0,1.10,.188,c);
+  box(.405,.025,.030,shirtShade,0,.825,.158,c);
 
-  // Tie
-  const knot=new THREE.Mesh(new THREE.OctahedronGeometry(.075,0),tie);
-  knot.scale.set(1,.72,.42); knot.position.set(0,1.31,.202); c.add(knot);
-  const tieBody=new THREE.Mesh(new THREE.CylinderGeometry(.045,.070,.36,4),tie);
-  tieBody.position.set(0,1.10,.202); tieBody.rotation.y=Math.PI/4; c.add(tieBody);
-  box(.050,.017,.007,tiePink,0,.995,.220,c);
+  // Collar sits slightly forward and frames the knot
+  const colL=box(.145,.090,.028,shirtShade,-.078,1.405,.192,c); colL.rotation.z=-.58;
+  const colR=box(.145,.090,.028,shirtShade,.078,1.405,.192,c); colR.rotation.z=.58;
+
+  // Tie: separate knot, long flat body and pointed tip. Push forward enough to stay visible.
+  const knot=new THREE.Mesh(new THREE.OctahedronGeometry(.068,0),tie);
+  knot.scale.set(1,.72,.44); knot.position.set(0,1.325,.222); c.add(knot);
+  const tieBody=box(.070,.285,.026,tie,0,1.135,.230,c);
+  const tieTip=new THREE.Mesh(new THREE.OctahedronGeometry(.055,0),tie);
+  tieTip.scale.set(.95,1.15,.34); tieTip.position.set(0,.955,.230); tieTip.rotation.z=Math.PI/4; c.add(tieTip);
+  box(.046,.015,.006,tiePink,0,1.005,.244,c);
 
   // Neck
   cyl(.068,.075,.10,skin,0,1.49,0,c,10);
